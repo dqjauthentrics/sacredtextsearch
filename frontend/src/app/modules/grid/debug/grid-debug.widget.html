@@ -1,0 +1,67 @@
+<table class="grid-debug" *ngIf="config">
+    <tr>
+        <th>uniqueId</th>
+        <td>{{config.uniqueId}}</td>
+    </tr>
+    <tr>
+        <td>
+            <div class="row">
+                <div class="col">__initialized?</div>
+                <div class="col">{{config.__initialized ? 'Yes' : 'No'}}</div>
+            </div>
+            <div class="row">
+                <div class="col">__inlineEditingIndex?</div>
+                <div class="col">{{config.__inlineEditingIndex}}</div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>url</th>
+        <td>{{config.dataUrl}}</td>
+    </tr>
+    <tr>
+        <th>rowUrl</th>
+        <td>{{config.itemClick|json}}</td>
+    </tr>
+    <tr>
+        <th>containerWidth</th>
+        <td>{{config.containerWidth}}</td>
+    </tr>
+    <tr>
+        <th>opsLocations</th>
+        <td>
+            <div>{{config.__quadrants|json}}</div>
+            <table class="quadrants" *ngIf="config.__quadrants">
+                <tr>
+                    <td colspan="3" [class.used]="config.__quadrants.top"></td>
+                </tr>
+                <tr>
+                    <td [class.used]="config.__quadrants.left"></td>
+                    <td></td>
+                    <td [class.used]="config.__quadrants.right"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" [class.used]="config.__quadrants.bottom"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <th>pageState</th>
+        <td>{{config.pageState|json}}</td>
+    </tr>
+    <tr>
+        <th>items:</th>
+        <td>
+            # Page items: {{config.__items?.length}}<br/>
+            First item:
+            <pre *ngIf="config.__items && config.__items.length > 0">
+                {{config.__items[0].record|json}}
+            </pre>
+        </td>
+    </tr>
+    <tr>
+        <th>colSpecs</th>
+        <td>{{config.colSpecs|json}}</td>
+    </tr>
+</table>

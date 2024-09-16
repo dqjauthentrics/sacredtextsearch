@@ -1,0 +1,30 @@
+.verse-translations {
+  .header {
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+  }
+
+  .translation {
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    background: #777;
+    color: #FFF;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .body {
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+    font-style: normal;
+    font-weight: 200;
+    margin-bottom: 1rem;
+  }
+
+  .verses-wrap {
+    //overflow: auto;
+  }
+}

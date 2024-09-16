@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+case "$1" in
+    start)
+        pm2 start node dist/index.js --name sacred-backend
+        exit
+        ;;
+    restart)
+        pm2 restart sacred-backend
+        exit
+        ;;
+    kill)
+        pm2 delete sacred-backend
+        exit
+        ;;
+    list)
+        pm2 list
+        exit
+        ;;
+    status)
+        pm2 show sacred-backend | more
+        exit
+        ;;
+     *)
+     gulp
+esac

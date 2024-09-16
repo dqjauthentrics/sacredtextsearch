@@ -1,0 +1,31 @@
+<h4>
+	Collections and Translations
+	<i tabindex="0" class="clickable float-right fas fa-times" (keyup)="hideMe()" (click)="hideMe()"></i>
+</h4>
+<div *ngIf="!loading && SVC.collectionTreeView">
+	<treeview [config]="config" [items]="SVC.collectionTreeView" [itemTemplate]="itemTemplate"></treeview>
+
+	<ng-template #itemTemplate let-item="item" let-onCollapseExpand="onCollapseExpand" let-onCheckedChange="onCheckedChange">
+		<div [class]="'form-check level-' + item.value.level">
+			<button class="btn-plain" (click)="onCollapseExpand()">
+				<i *ngIf="item.children"
+				   [class]="'fa-lg fas fa-' + (item.collapsed? 'caret-right' : 'caret-down')">
+				</i>
+			</button>
+			<label for="val" class="form-check-label"
+				   (click)="item.checked = !item.checked; onCheckedChange()">
+			</label>
+			<input id="val" *ngIf="item.value.id > 0"
+				   type="checkbox"
+				   class="form-check-input"
+				   [(ngModel)]="item.checked"
+				   (ngModelChange)="onCheckedChange()"
+				   (change)="changeNotify()"
+				   [disabled]="item.disabled"
+				   [indeterminate]="item.indeterminate"/>
+			<span *ngIf="item.value.type === 'heading'" [class]="'item-' + item.value.type" (click)="onCollapseExpand()">{{ item.text }}</span>
+			<span *ngIf="item.value.type !== 'heading'" [class]="'item-' + item.value.type">{{ item.text }}</span>
+		</div>
+	</ng-template>
+
+</div>

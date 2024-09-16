@@ -1,0 +1,11 @@
+@import "variables";
+
+.btn-primary {
+  background: $brand-primary;
+  border-color: $brand-primary;
+}
+
+.btn-primary:hover {
+  background: $brand-primary-light;
+  border-color: $brand-primary-light;
+}

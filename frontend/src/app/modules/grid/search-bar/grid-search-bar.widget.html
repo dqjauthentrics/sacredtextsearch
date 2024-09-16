@@ -1,0 +1,25 @@
+<div class="input-group search-bar-widget" data-children-count="1">
+    <div class="wrapper">
+        <label>
+            <input #searchInput class="form-control search ng-pristine ng-valid ng-touched"
+                   name="filterQuery"
+                   tabindex="0"
+                   type="text"
+                   [attr.aria-label]="'Search filter field.'|translate"
+                   [(ngModel)]="query"
+                   (keyup.enter)="change(true)"
+                   (ngModelChange)="change(false)"
+                   [placeholder]="placeholder">
+        </label>
+        <span class="input-group-addon">
+            <button [tabIndex]="0" (click)="clear()" class="input-group-addon clear" tabindex="0"
+                    [attr.aria-label]="'Search filter field.'|translate">
+                <i class="fa fa-times-circle" [title]="'Clear query.'|translate" [attr.aria-label]="'Clear search filter.'"></i>
+                <span class="sr-only">{{'Clear query.'|translate}}</span>
+            </button>
+        </span>
+    </div>
+    <span tabindex="0" class="btn btn-primary" (keyup.enter)="change(true)" (click)="change(true)">
+        <i class="fas fa-search" aria-hidden="true" data-children-count="0"></i>
+    </span>
+</div>

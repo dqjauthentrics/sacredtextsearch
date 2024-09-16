@@ -1,0 +1,20 @@
+<ng-container *ngIf="item && config && colSpec && spec">
+    <ng-container *ngIf="colSpec.editable && config.__inlineEditingIndex === item.__index; else nonEdit">
+        <ng-container [ngSwitch]="spec.textType">
+            <label *ngSwitchCase="'textarea'">
+                <textarea (change)="inlineChange(value)" [(ngModel)]="value">{{value}}</textarea>
+            </label>
+            <ng-container *ngSwitchCase="'wysiwyg'">
+                <label *ngSwitchCase="'wysiwyg'"></label>
+                <!--wysiwyg [(text)]="value" (textChange)="inlineChange($event)"></wysiwyg-->
+            </ng-container>
+            <label *ngSwitchDefault>
+                <input type="text" (change)="value = gridService.inlineChangeNotice(config, colSpec, item, value)" [(ngModel)]="value"/>
+            </label>
+        </ng-container>
+    </ng-container>
+    <ng-template #nonEdit>
+        <div *ngIf="initialized && spec.textType !== 'number'" [class]="(spec.classes||'') + (spec.highlight ? 'highlightable':'')" [innerHTML]="value"></div>
+        <div *ngIf="spec.textType === 'number'" [class]="spec?.classes">{{value|number:spec.format}}</div>
+    </ng-template>
+</ng-container>

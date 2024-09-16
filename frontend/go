@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+case "$1" in
+    prod)
+        ionic build --prod
+        echo "Done building for production."
+        exit
+        ;;
+    iphone)
+        ionic cordova run ios --buildConfig=build.json --device
+        exit
+        echo "Done building for iPhone."
+      ;;
+     *)
+     ionic serve --port=8222
+esac

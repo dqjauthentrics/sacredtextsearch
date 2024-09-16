@@ -1,0 +1,97 @@
+.collection {
+  font-size: 0.8rem;
+}
+
+ion-card {
+  width: 100%;
+}
+
+ion-card-header, ion-card-content {
+  padding: 0;
+  margin: 0;
+}
+
+.tome-name {
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.level-0 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+
+  input {
+    position: relative;
+    top: -4px;
+  }
+}
+
+.level-1 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: 0.25rem;
+  margin-left: -1.1rem;
+
+  input {
+    position: relative;
+    top: -3px;
+  }
+}
+
+.level-2 {
+  font-size: 0.8rem;
+  margin-left: -1.2rem;
+  margin-top: 0.1rem;
+
+  input {
+    position: relative;
+    top: -2px;
+  }
+}
+
+.level-3 {
+  font-size: 0.7rem;
+  margin-left: -1.2rem;
+  margin-top: 0.1rem;
+
+  input {
+    position: relative;
+    top: -2px;
+  }
+}
+
+.level-4 {
+  font-size: 0.6rem;
+  margin-left: -1.2rem;
+  margin-top: 0.1rem;
+
+  input {
+    position: relative;
+    top: -2px;
+  }
+}
+
+.item-translation {
+  font-style: italic;
+}
+
+.item-heading {
+  font-style: italic;
+  cursor: pointer;
+}
+
+.item-translation {
+  font-style: normal;
+}
+
+fa-icon {
+  cursor: pointer;
+  margin-right: 10px;
+  color: #BBB;
+}
+

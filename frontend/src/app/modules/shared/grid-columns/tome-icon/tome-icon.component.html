@@ -1,0 +1,39 @@
+<ng-container *ngIf="tome">
+	<div [class]="'highlightable tome tome-' + tome.id">
+		<ng-container *ngIf="tome.icon.substring(0,1) !== '/'">
+			<!--@todo-->
+			<i [class]="('tome-icon fas fa-' + tome.icon)" [style.color]="tome.color"></i>
+		</ng-container>
+		<ng-container *ngIf="tome.icon.substring(0,1) === '/'">
+			<img [src]="tome.icon" [alt]="tome.name"/>
+		</ng-container>
+		<ng-container *ngIf="!iconOnly">
+			<div class="name" *ngIf="showName && verse">
+				{{ searchService.namify(verse, '%t %b %c:%v') }}
+			</div>
+			<div *ngIf="translation.length > 0" class="source">
+				<a tabindex="0" (click)="sourceClick($event, 'source')">{{ translation }}</a>
+			</div>
+			<div>
+            <span [tooltip]="'View verse in context.'">
+                <i tabindex="0" class="fas fa-eye action"
+				   (click)="sourceClick($event, 'view')"
+				   (keyup)="sourceClick($event, 'view')"
+				   [style.color]="'gray'"></i>
+            </span>
+				<span [tooltip]="'Compare available translations of this verse.'">
+                <i tabindex="0" class="action fas fa-th-list"
+				   (click)="sourceClick($event, 'translations')"
+				   (keyup)="sourceClick($event, 'translations')"
+				   [style.color]="'gray'"></i>
+            </span>
+				<span [tooltip]="'Search for similar texts.'">
+                <i tabindex="0" class="fas fa-file-search action"
+				   (click)="sourceClick($event, 'search')"
+				   (keyup)="sourceClick($event, 'search')"
+				   [style.color]="'gray'"></i>
+            </span>
+			</div>
+		</ng-container>
+	</div>
+</ng-container>

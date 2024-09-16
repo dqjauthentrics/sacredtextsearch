@@ -1,0 +1,12 @@
+<ng-container *ngIf="config && spec">
+    <div class="grid-gauge" *ngIf="value !== null && value !== undefined">
+        <div class="gauge" style="width: 100%; height: 200px;">
+            <ngx-gauge [type]="'semi'" [value]="value"
+					   [thick]="20" size="80" [label]="spec.label"
+                       [foregroundColor]="spec.color"
+                       [aria-label]="spec.label + ' gauge: value ' + value.toString() +'.'">
+            </ngx-gauge>
+        </div>
+        <div *ngIf="spec.showLabel" class="label">{{spec.label}}</div>
+    </div>
+</ng-container>

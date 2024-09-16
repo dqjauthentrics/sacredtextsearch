@@ -1,0 +1,34 @@
+<div *ngIf="facetSpec && facetSpec.candidates && facetSpec.candidates.length > 0" [class]="'grid-facet text-left' + (facetSpec.classes? ' ' + facetSpec.classes: '')">
+    <div class="title" *ngIf="facetSpec.title">
+        <i class="fad fa-filter"></i>&nbsp;
+        <span>{{facetSpec.title}}</span>
+        <span class="pull-right">
+            <button (click)="collapsed=!collapsed" class="plain"><i
+               [class]="'clickable fas fa-' + (collapsed? 'plus':'minus')"></i></button>
+        </span>
+    </div>
+    <div *ngIf="!collapsed" class="facet-body">
+        <ng-container *ngFor="let candidate of facetSpec.candidates; let candidateIndex = index">
+            <div *ngIf="(showAll || candidateIndex < (facetSpec.moreThreshold||0))"
+                 [class]="(facetSpec.orientation === 'horizontal' ? 'col' : 'col-12 p-0')">
+                <div class="row">
+                    <div tabindex="0" [class]="'table-row' + (candidate.selected ? ' selected':'')" (click)="toggle(candidate)">
+                        <div class="table-cell">
+                            <i [class]="'fad fa-' + (candidate.selected? 'check-square':'square')" tabindex="0"></i>
+                        </div>
+                        <div class="table-cell">
+                            {{candidate.name}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div class="row more-fewer"
+             *ngIf="facetSpec.candidates && (!showAll && facetSpec.candidates.length > (facetSpec.moreThreshold||0)) || (showAll && facetSpec.candidates.length > (facetSpec.moreThreshold||0))">
+            <button class="btn-link-like" (click)="showAll = true"
+                    *ngIf="!showAll && facetSpec.candidates.length > (facetSpec.moreThreshold||0)">{{'More...'}}</button>
+            <button class="btn-link-like" (click)="showAll = false"
+                    *ngIf="showAll && facetSpec.candidates.length > (facetSpec.moreThreshold||0)">{{'Fewer'}}</button>
+        </div>
+    </div>
+</div>

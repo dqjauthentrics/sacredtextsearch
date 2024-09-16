@@ -1,0 +1,57 @@
+<div *ngIf="config && config.blankSpec && config.blankSpec.colSpecs" class="card grid-blank">
+    <div class="card-header">{{(config.blankSpec.headingText || 'Add a Record')|translate}}</div>
+    <div class="card-body">
+        <form>
+            <div class="table">
+                <ng-container *ngFor="let colSpec of config.blankSpec.colSpecs; let fieldIndex = index">
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <grid-required-field *ngIf="!!colSpec.required"></grid-required-field>
+                            <label [for]="'fldBlank'+fieldIndex">{{colSpec.heading|translate}}</label>
+                        </div>
+                        <div class="table-cell">
+                            <ng-container [ngSwitch]="colSpec.type">
+                                <input *ngSwitchCase="'date'"
+                                       type="text"
+                                       class="form-control date"
+									   #dpe="bsDatepicker" bsDatepicker
+                                       [name]="'blank'+fieldIndex"
+                                       [id]="'fldBlank'+fieldIndex"
+                                       [required]="!!colSpec.required"
+                                       [(bsValue)]="record[colSpec.name]"
+                                       [bsConfig]="datePickerConfig"
+                                       (keyup.enter)="addRecord()"/>
+
+                                <ng-container *ngSwitchCase="'lookup'">
+                                    <label for="grid-lookup-select"></label>
+                                    <select id="grid-lookup-select" name="grid-lookup-select"
+                                            [(ngModel)]="lookupValues[fieldIndex]"
+                                            (ngModelChange)="setLookupValue($event, colSpec)"
+                                            [class]="'grid-lookup'">
+                                        <option disabled>{{'-- please select an item --'|translate}}</option>
+                                        <option *ngFor="let lookupItem of colSpec.typeSpec.items" [ngValue]="lookupItem[valColNames[fieldIndex]]">
+                                            {{lookupItem[dspColNames[fieldIndex]]}}
+                                        </option>
+                                    </select>
+                                </ng-container>
+
+                                <input *ngSwitchDefault
+                                       type="text"
+                                       class="form-control text"
+                                       [name]="'blank'+fieldIndex"
+                                       [id]="'fldBlank'+fieldIndex"
+                                       [required]="!!colSpec.required"
+                                       [(ngModel)]="record[colSpec.name]"
+                                       (keyup.enter)="addRecord()"/>
+                            </ng-container>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="error text-center" *ngIf="error.length > 0">{{error|translate}}</div>
+        </form>
+    </div>
+    <div class="card-footer button-bar">
+        <button (click)="addRecord()" class="btn btn-primary" [disabled]="!valid(config.blankSpec)">{{(config.blankSpec.buttonText || 'Add')|translate}}</button>
+    </div>
+</div>

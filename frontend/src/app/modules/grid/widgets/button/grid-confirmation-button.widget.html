@@ -1,0 +1,21 @@
+<button *ngIf="button" [class]="'btn grid-button ' + button.classes" tabindex="0"
+		#pop="bs-popover"
+        [popover]="confirmation"
+        [popoverTitle]="'Confirmation'|translate"
+        [adaptivePosition]="true"
+        [isOpen]="confirmationIsOpen"
+        triggers=""
+        container="body"
+        (click)="popToggle($event)">
+    <span *ngIf="button.text">{{button.text}}</span>
+    <span *ngIf="button.text && button.icon">&nbsp;</span>
+    <span *ngIf="button.icon"><i [class]="button.icon"></i></span>
+</button>
+<ng-template #confirmation>
+    <div class="confirmation-warning"><i class="fad fa-exclamation-triangle orange"></i> {{'W A R N I N G'|translate}}</div>
+    <div [innerHTML]="confirmationPrompt"></div>
+    <div class="button-bar">
+        <button class="btn btn-primary" (click)="confirm($event)">{{'Yes'|translate}}</button>
+        <button class="btn btn-cancel" (click)="cancel($event)">{{'Cancel'|translate}}</button>
+    </div>
+</ng-template>

@@ -1,0 +1,7 @@
+<div *ngIf="config" class="grid-tiles container-fluid">
+    <div class="row row-equal card-grid">
+        <ng-container *ngFor="let item of config.__items">
+            <grid-tile-default [item]="item" [config]="config"></grid-tile-default>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+@import "variables";
+
+.gray {
+  color: #888;
+}
+
+h4, .card-content h4 {
+  font-weight: 500 !important;
+  font-size: 1.2rem !important;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.card {
+  border-radius: 8px;
+  font-size: 0.8rem;
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0;
+    margin: auto auto;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tooltip {
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+}
+
+.tooltip-inner {
+  color: #FFF;
+  background-color: $brand-secondary;
+  font-weight: 300;
+}

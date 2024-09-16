@@ -1,0 +1,8 @@
+<ng-container *ngIf="spec && value && value.length > 0">
+    <ul [class]="'grid-list' + (spec.classes? ' ' + spec.classes : '')">
+        <li *ngFor="let listItem of value">
+            <a *ngIf="spec.linkSpec" [routerLink]="getLink(listItem)">{{listItem[spec.listColName]}}</a>
+            <span *ngIf="!spec.linkSpec">{{listItem[spec.listColName]}}</span>
+        </li>
+    </ul>
+</ng-container>

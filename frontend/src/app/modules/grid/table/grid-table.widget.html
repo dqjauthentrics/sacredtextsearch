@@ -1,0 +1,118 @@
+<table *ngIf="config" [class]="'grid-table' + (config.tableSpec?.tableClass? ' ' + config.tableSpec?.tableClass: '')"
+	   (window:resize)="windowResize()" #gridTable>
+
+	<!-- TABLE HEADING -->
+	<thead *ngIf="!config?.tableSpec?.hideHeader">
+	<tr class="headings">
+		<th class="checks text-center" *ngIf="properPosition(config,'tableSpec', 'checkSpec', 'left')">
+			<label>
+				<input type="checkbox" [value]="1" [(ngModel)]="allChecked" (change)="allCheckToggle(config)"/>
+			</label>
+			<div *ngIf="config.tableSpec?.checkSpec?.checkAllHeading" [innerHTML]="config.tableSpec?.checkSpec?.checkAllHeading"></div>
+		</th>
+		<th class="actions" *ngIf="!isEditing(config) && properPosition(config, 'actionsSpec', null,'left')">
+			{{'Actions'|translate}}
+		</th>
+		<ng-container *ngFor="let colSpec of config.colSpecs">
+			<th [attr.class]="colSpec.headerCellClasses" *ngIf="showCol(colSpec)">
+				<div [class]="'grid-inner-table' +  (colSpec.headerCellClasses? ' ' + colSpec.headerCellClasses : '')">
+					<div class="grid-inner-table-row col-heading">
+						<button class="btn-plain grid-inner-table-cell"
+								[class.clickable]="colSpec.sortable"
+								[innerHTML]="colSpec.heading"
+								(click)="sort(colSpec)"></button>
+						<div class="grid-inner-table-cell col-sort">
+							<button class="btn-plain" (click)="sort(colSpec)">
+								<i *ngIf="config.currentSort === colSpec"
+								   [class]="'sort-indicator fas fa-caret-' + (config.currentSortAscending?'up':'down')"></i>
+								<span *ngIf="config.currentSort !== colSpec">&nbsp;</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</th>
+		</ng-container>
+		<th class="actions" [style.width]="config.actionsSpec && config.actionsSpec.minWidth ? config.actionsSpec.minWidth : null"
+			*ngIf="!isEditing(config) && properPosition(config, 'actionsSpec', null,'right')">
+			{{'Actions'|translate}}
+		</th>
+		<th class="drag-handle-cell" *ngIf="config.dragDropEnabled && config.__items && config.__items.length > 1">
+			{{'Reorder'|translate}}
+		</th>
+		<th class="checks text-center" *ngIf="properPosition(config,'tableSpec', 'checkSpec', 'right')">
+			<label>
+				<input type="checkbox" [value]="1" [(ngModel)]="allChecked" (change)="allCheckToggle(config)"/>
+			</label>
+			<div *ngIf="config.tableSpec?.checkSpec?.checkAllHeading" [innerHTML]="config.tableSpec?.checkSpec?.checkAllHeading"></div>
+		</th>
+	</tr>
+
+	<tr class="filters">
+		<td class="checks" *ngIf="properPosition(config,'tableSpec', 'checkSpec', 'left')"></td>
+		<td [class]="'actions'" *ngIf="!isEditing(config) && properPosition(config, 'actionsSpec', null,'left')"></td>
+		<ng-container *ngFor="let colSpec of config.colSpecs">
+			<td [attr.class]="colSpec.headerCellClasses" *ngIf="showCol(colSpec)">
+				<label *ngIf="colSpec.searchWidth">
+					<input tabindex="0" class="filter-field" type="search"
+						   [(ngModel)]="colSpec.filter"
+						   (ngModelChange)="search(colSpec, $event)"
+						   [style.width]="colSpec.searchWidth + 'rem'"/>
+				</label>
+			</td>
+		</ng-container>
+		<td [class]="'checks'" *ngIf="properPosition(config,'tableSpec', 'checkSpec', 'right')"></td>
+		<td [class]="'actions'" *ngIf="!isEditing(config) && properPosition(config, 'actionsSpec', null,'right')"></td>
+		<td class="drag-handle-cell" *ngIf="config.dragDropEnabled && config.__items && config.__items.length > 1"></td>
+	</tr>
+	</thead>
+
+	<!-- TABLE BODY -->
+	<tbody class="grid-table-body" #dragMirror [dragulaModel]="config.__items" (dragulaModelChange)="dragChange(config, $event)" [dragula]="dragBagName">
+	<ng-container *ngFor="let item of config.__items; let itemIndex = index;">
+
+		<tr (click)="itemClick(item)" [class.selected]="!!item.__selected" [class]="getRowClasses(config, item, itemIndex)">
+			<td class="checks text-center" *ngIf="properPosition(config,'tableSpec', 'checkSpec', 'left')">
+				<label>
+					<input type="checkbox" value="1" [checked]="item.record[config.tableSpec?.checkSpec?.colName]" (change)="checkToggle(config, item)"/>
+				</label>
+			</td>
+			<td [class]="'actions'" [style.width]="config.actionsSpec && config.actionsSpec.minWidth ? config.actionsSpec.minWidth : null"
+				*ngIf="!isEditing(config) && properPosition(config, 'actionsSpec', null,'left')">
+				<grid-actions [item]="item" [(config)]="config"></grid-actions>
+			</td>
+			<ng-container *ngFor="let colSpec of config.colSpecs">
+				<td *ngIf="showCol(colSpec)" [class]="colSpec?.bodyCellClasses">
+					<grid-column *ngIf="!colSpec.displayConditionCb || colSpec.displayConditionCb(item)"
+								 [item]="item" [config]="config" [colSpec]="colSpec">
+					</grid-column>
+				</td>
+			</ng-container>
+			<td [class]="'actions'" [style.width]="config.actionsSpec && config.actionsSpec.minWidth ? config.actionsSpec.minWidth : null"
+				*ngIf="!isEditing(config) && properPosition(config, 'actionsSpec', null,'right')">
+				<grid-actions [item]="item" [(config)]="config"></grid-actions>
+			</td>
+			<td class="checks text-center" *ngIf="properPosition(config,'tableSpec', 'checkSpec', 'right')">
+				<label>
+					<input type="checkbox" value="1" [checked]="item.record[config.tableSpec?.checkSpec?.colName]" (change)="checkToggle(config, item)"/>
+				</label>
+			</td>
+			<td class="drag-handle-cell" *ngIf="config.dragDropEnabled && config.__items && config.__items.length > 1">
+				<div class="drag-handle" tabindex="0">☷</div>
+			</td>
+			<td *ngIf="item.__selected" [class]="item.__selected ? 'selected-arrow' : 'selected-invisible'">
+				<i class="fad fa-chevron-right"></i>
+			</td>
+		</tr>
+		<tr *ngIf="config.__inlineEditingIndex === itemIndex" [class]="getRowClasses(config, item, itemIndex) + ' inline'">
+			<td colspan="5">
+				<grid-inline-edit [item]="item" [(config)]="config"></grid-inline-edit>
+			</td>
+		</tr>
+
+	</ng-container>
+	</tbody>
+
+	<!-- TABLE FOOTER -->
+	<tfoot>
+	</tfoot>
+</table>

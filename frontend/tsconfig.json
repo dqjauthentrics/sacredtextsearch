@@ -1,0 +1,46 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": "./",
+		"preserveSymlinks": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"outDir": "./www",
+		"sourceMap": true,
+		"declaration": false,
+		"downlevelIteration": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"target": "es2022",
+		"module": "es2022",
+		"moduleResolution": "node",
+		"lib": [
+			"es2022",
+			"dom"
+		],
+		"types": [
+			"node"
+		],
+		"typeRoots": [
+			"node_modules/@types"
+		],
+		"paths": {
+			"@backend/*": [
+				"../backend/src/shared/entity-interfaces/*"
+			],
+			"@modules/*": [
+				"./src/app/modules/*"
+			],
+			"@shared/*": [
+				"../backend/src/shared/*"
+			],
+			"@services/*": [
+				"./src/app/services/*"
+			]
+		}
+	},
+	"angularCompilerOptions": {
+		"fullTemplateTypeCheck": true,
+		"strictInjectionParameters": true
+	}
+}

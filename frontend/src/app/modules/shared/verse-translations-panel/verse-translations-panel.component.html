@@ -1,0 +1,22 @@
+<div *ngIf="firstVerse" class="verse-translations">
+	<div class="row">
+		<div class="col-auto">
+			<tome-icon [data]="tomeData"></tome-icon>
+		</div>
+		<div class="col">
+			<h4>{{ title }}, Verse {{ firstVerse.verseNumber }}</h4>
+		</div>
+		<div class="col-auto">
+			<i tabindex="0" class="clickable float-right fas fa-times" (keyup)="hideMe()" (click)="hideMe()"></i>
+		</div>
+	</div>
+	<h5>{{ subTitle }}</h5>
+	<div class="verses-wrap" [style.height]="parentHeight()">
+		<div class="verse" *ngFor="let result of SVC.verseTranslations">
+			<div class="translation">
+				{{ result.verse.translation.name }}
+			</div>
+			<div class="body">{{ result.verse.body }}</div>
+		</div>
+	</div>
+</div>

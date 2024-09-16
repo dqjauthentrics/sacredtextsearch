@@ -1,0 +1,77 @@
+<div *ngIf="config" class="grid-ops">
+    <!--div>W:{{config.containerWidth}}</div-->
+    <div [class]="'align-middle ' + (position === 'top' || position === 'bottom' ? 'row row-equal justify-content-center' : 'full-width')">
+        <ng-container *ngFor="let opSpec of config.opSpecs">
+            <ng-container *ngIf="opSpec.position === position">
+                <ng-container *ngFor="let widget of opSpec.widgets">
+                    <div [class]="'grid-op align-middle ' + (position === 'top' || position === 'bottom' ? 'col-auto m-1' : 'full-width')">
+                        <ng-container [ngSwitch]="widget.name">
+                            <ng-container *ngSwitchCase="'info'" [ngTemplateOutlet]="gridInfoTpl"></ng-container>
+                            <ng-container *ngSwitchCase="'facets'" [ngTemplateOutlet]="gridFacetsTpl"></ng-container>
+                            <ng-container *ngSwitchCase="'mode'" [ngTemplateOutlet]="gridModeTpl"></ng-container>
+                            <ng-container *ngSwitchCase="'search'" [ngTemplateOutlet]="gridSearchTpl"></ng-container>
+                            <ng-container *ngSwitchCase="'paginator'" [ngTemplateOutlet]="gridPaginatorTpl"></ng-container>
+                            <ng-container *ngSwitchCase="'sizes'" [ngTemplateOutlet]="gridSizesTpl"></ng-container>
+                            <ng-container *ngSwitchCase="'blank'" [ngTemplateOutlet]="gridBlankTpl"></ng-container>
+                            <ng-container *ngSwitchCase="'custom'" [ngTemplateOutlet]="gridCustomTpl"></ng-container>
+                        </ng-container>
+
+                        <ng-template #gridInfoTpl>
+                            <div class="grid-info" *ngIf="config.pageState && config.pageState.numPages">
+                                <span *ngIf="config.pageState.total !== 1">
+                                    {{config.pageState.total|number}} {{'total records'|translate}}<span *ngIf="config.pageState.numPages > 0">{{','|translate}}</span>
+                                    <span *ngIf="config.pageState.numPages > 0">
+                                        {{'page'|translate}} {{(config.pageState.pageNum + 1)|number}}
+                                        {{'of'|translate}} {{config.pageState.numPages|number}}
+                                    </span>
+                                </span>
+                                <span *ngIf="config.pageState.total === 1">{{'1 matching record'|translate}}</span>
+                            </div>
+                        </ng-template>
+
+                        <ng-template #gridFacetsTpl>
+                            <grid-facets [facetSpecs]="config.facetSpecs" [position]="position" (facetsChange)="facetsChanged($event)"></grid-facets>
+                        </ng-template>
+
+                        <ng-template #gridBlankTpl>
+                            <grid-blank [config]="config" [position]="position" (recordAdded)="recordAdded($event)"></grid-blank>
+                        </ng-template>
+
+                        <ng-template #gridModeTpl>
+                            <div [class]="'grid-mode-' + position" *ngIf="config.tileSpec">
+                                View as:
+                                <button class="btn btn-primary btn-plain" (click)="toggleMode()">{{config.pageState.mode === 'tiles' ? 'Rows' : 'Tiles'}}</button>
+                            </div>
+                        </ng-template>
+
+                        <ng-template #gridSearchTpl>
+                            <grid-search-bar [(query)]="config.query" (queryChange)="searchChange($event)"
+                                             [placeholder]="config.searchPlaceholder" [mode]="config.searchMode">
+                            </grid-search-bar>
+                        </ng-template>
+
+                        <ng-template #gridPaginatorTpl>
+                            <grid-paginator [state]="config.pageState" (paginationChange)="pagingChange($event)"></grid-paginator>
+                        </ng-template>
+
+                        <ng-template #gridCustomTpl>
+                            <button class="grid-custom-op clickable"
+                                    [innerHTML]="widget.customSpec.html"
+                                    (click)="widget.customSpec.onClick(config.__items)"></button>
+                        </ng-template>
+
+                        <ng-template #gridSizesTpl>
+                            <span class="grid-sizes">
+                                <label>Show:
+                                    <select [(ngModel)]="config.pageState.size" (ngModelChange)="sizeChange()">
+                                        <option *ngFor="let size of config.pageState.sizes">{{size}}</option>
+                                    </select>
+                                </label>
+                            </span>
+                        </ng-template>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

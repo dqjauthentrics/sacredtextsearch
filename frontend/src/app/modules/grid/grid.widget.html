@@ -1,0 +1,54 @@
+<div *ngIf="config" #gridContainer
+     [class]="config.uniqueId + (config.classes ? ' ' + config.classes : '')"
+     (window:resize)="setContainerWidth()">
+    <grid-loading-bar [loading]="config.__loading"></grid-loading-bar>
+    <grid-debug *ngIf="config.__debug && config.__debug >= 2" [config]="config"></grid-debug>
+    <div *ngIf="config.__initialized" class="grid">
+        <!-- Top ops. -->
+        <div *ngIf="config.__quadrants && config.__quadrants.top" class="row">
+            <div class="col p-0">
+                <grid-ops [config]="config" [position]="'top'" [orientation]="'horizontal'" (blankAdded)="blankAdded($event)"
+                          (paginationChange)="pagingChange($event)"></grid-ops>
+            </div>
+        </div>
+
+        <!-- Data Items. -->
+        <div class="row" [hidden]="config.noRecordsHideBody && config.__items && config.__items.length === 0">
+            <div *ngIf="config.__quadrants && config.__quadrants.left" class="facets-left pl-0 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <grid-ops [config]="config" [position]="'left'" [orientation]="'vertical'"
+                          (paginationChange)="pagingChange($event)" (blankAdded)="blankAdded($event)"></grid-ops>
+            </div>
+            <div *ngIf="config.pageState"
+                 [class]="config.__quadrants && (config.__quadrants.left || config.__quadrants.right) ? 'pr-0 col-sm-6 col-md-8 col-lg-9 col-xl-10' : 'px-0 col'">
+                <ng-container *ngIf="config && config.__initialized">
+                    <grid-table *ngIf="config.pageState.mode === 'rows'" [config]="config"
+                                (itemSelectToggle)="itemSelect($event)"
+                                (reorderChange)="itemsReordered($event)"
+                                (checkChange)="itemsCheckChange($event)">
+                    </grid-table>
+                    <grid-tiles *ngIf="config.pageState.mode !== 'rows'" [config]="config">
+                        (itemSelectToggle)="itemSelectToggle($event)"
+                    </grid-tiles>
+                </ng-container>
+                <ng-container *ngIf="config && config.__initialized && (!config.__items || config.__items.length === 0)">
+                    <div class="no-records" [innerHTML]="config.messageNoRecords"></div>
+                </ng-container>
+            </div>
+            <div *ngIf="config.__quadrants && config.__quadrants.right" class="facets-right pl-0 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <grid-ops [config]="config" [position]="'right'" [orientation]="'vertical'"
+                          (paginationChange)="pagingChange($event)" (blankAdded)="blankAdded($event)"></grid-ops>
+            </div>
+        </div>
+
+        <!-- Bottom ops. -->
+        <div *ngIf="config.__quadrants && config.__quadrants.bottom" class="row">
+            <div class="col">
+                <grid-ops [config]="config" [position]="'bottom'" [orientation]="'horizontal'" (blankAdded)="blankAdded($event)"
+                          (paginationChange)="pagingChange($event)"></grid-ops>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

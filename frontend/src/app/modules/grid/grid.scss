@@ -1,0 +1,425 @@
+@import "grid.variables";
+
+.btn.btn-plain {
+  padding: 0.5em !important;
+}
+
+.grid {
+  .lightgray {
+    color: #AAA;
+  }
+
+  .btn {
+    padding: 0;
+  }
+
+  select, label {
+    display: inline;
+  }
+
+  .grid-list {
+    margin-left: 0;
+    padding-left: 1.2rem;
+  }
+
+  .grid-icon {
+    font-size: 1.4rem;
+    color: $brand-primary;
+  }
+
+  .grid-inline {
+    width: 72px;
+    height: auto;
+    max-height: 72px;
+  }
+
+  .grid-op, label, select {
+    line-height: 1rem;
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+
+  .grid-info {
+    line-height: 2rem;
+  }
+
+  .grid-avatar {
+    border-radius: 50%;
+    max-width: 72px !important;
+    text-align: center;
+  }
+
+  .limited-paragraph {
+    max-height: 5rem;
+    overflow-y: auto;
+  }
+
+  .btn-link-like {
+    border: none;
+    background: transparent;
+    color: $brand-primary;
+    text-decoration: underline;
+  }
+
+  .btn-link-like:hover {
+    border: none;
+    background: transparent;
+    color: $brand-primary-lighter;
+    text-decoration: underline;
+  }
+}
+
+grid-button button.no-border {
+  border: none;
+}
+
+.button-bar {
+  text-align: center;
+  padding: 0.25rem;
+
+  button {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+.orange {
+  color: darkorange;
+}
+
+.confirmation-warning {
+  background: #FFEECC;
+  text-align: center;
+  padding: 0.15rem;
+  margin: 0 0 0.5rem 0;
+  border: 0;
+}
+
+.grid-actions {
+  margin: -4px 0 0 0;
+  padding: 0;
+
+  .btn, .btn-normal {
+    border: none;
+  }
+}
+
+.grid-debug {
+  td, th {
+    padding: 0.5rem;
+    border: 1px solid #EEE;
+  }
+}
+
+.grid-inner-table {
+  display: table;
+  width: auto;
+}
+
+.grid-inner-table-row {
+  display: table-row;
+  width: auto;
+}
+
+.grid-inner-table-cell {
+  display: table-cell;
+  width: auto;
+}
+
+.grid-inner-table-cell.clickable:hover {
+  text-decoration: underline;
+}
+
+.grid-ops {
+  .col-sm-12 {
+    text-align: center !important;
+  }
+
+  .grid-show {
+    min-width: 7rem;
+    display: inline-block;
+  }
+
+  .grid-mode-left, .grid-mode-right {
+    margin: 0.5rem;
+    text-align: center;
+  }
+
+  .grid-custom-op {
+    line-height: 40px;
+    vertical-align: middle;
+    color: $brand-primary-dark;
+    text-decoration: underline;
+  }
+}
+
+.grid-blank {
+  width: auto;
+  float: left;
+
+  .table-cell {
+    padding: 0.5rem;
+  }
+
+  .table-cell:first-child {
+    text-align: right;
+  }
+
+  .form-control.date {
+    width: 8rem;
+  }
+}
+
+span.grid-button, .grid-stack-btn {
+  padding: 0.5rem;
+  vertical-align: middle;
+  background: transparent;
+}
+
+span.grid-button .table-cell.text {
+  line-height: 2rem !important;
+  font-size: 1rem !important;
+  vertical-align: top;
+}
+
+.grid-stack-btn,
+span.grid-button .table-cell.icon i,
+span.grid-button .table-cell.icon i:after,
+span.grid-button .table-cell.icon i:before {
+  line-height: 2rem !important;
+  font-size: 1.4rem !important;
+  text-align: center;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+table.grid-table {
+  td {
+    font-weight: 100;
+  }
+
+  tbody tr {
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+  }
+
+  tbody tr:hover {
+    cursor: pointer;
+    border-left: 2px dashed gray;
+    border-right: 2px dashed gray;
+  }
+
+  .btn .table-cell.icon {
+    padding: 0;
+  }
+
+  .actions {
+    text-align: center;
+
+    button {
+      border: none;
+      margin: 0;
+      background: transparent;
+
+      span.grid-button {
+        padding: 0.05rem;
+      }
+    }
+
+    .grid-stack-btn {
+      padding: 0.25rem 0;
+      border-radius: 0.75rem;
+
+      .grid-stack-btn-bottom {
+        font-size: 1.8rem;
+        line-height: 2rem;
+        color: #888;
+      }
+
+      .grid-stack-btn-top {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: $brand-primary-dark;
+      }
+    }
+
+    .grid-stack-btn:hover {
+      .grid-stack-btn-bottom {
+        color: #AAA;
+      }
+
+      .grid-stack-btn-top {
+        color: $brand-primary-light;
+      }
+    }
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 6rem;
+  }
+
+  tr.editing td:first-child {
+    border-left: 6px solid gray;
+  }
+
+  tr.editing td:last-child {
+    border-right: 6px solid gray;
+  }
+
+  tr.inline, tr.inline td {
+    border-top: none;
+    text-align: center;
+
+    button {
+      margin: 0 0.5rem;
+    }
+  }
+
+  tr.odd, tr.odd td {
+    background: $table-bg-odd;
+  }
+
+  tr.even, tr.even td {
+    background: $table-bg-even;
+  }
+
+  .selected-invisible, .selected-arrow {
+    border-top: none;
+    vertical-align: middle;
+    font-weight: 900;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    padding: 0.25rem;
+  }
+
+  .selected-invisible {
+    background: #FFF !important;
+  }
+
+  .no-headings tr, .no-headings tr td {
+    background: $table-bg-odd !important;
+    height: 1rem;
+  }
+
+  img.grid-image:not(.avatar) {
+    max-width: 200px;
+    height: auto;
+  }
+
+  .drag-handle-cell {
+    vertical-align: top;
+    text-align: center;
+
+    .drag-handle {
+      margin: 0;
+      padding: 0;
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+    }
+  }
+
+  tr.selected-right:after {
+    content: ">";
+    line-height: 2rem;
+    background: transparent;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  .col-heading, .col-heading .table-cell {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.4rem;
+  }
+
+  thead th {
+    text-align: left;
+    line-height: 1.4rem;
+
+    .col-sort {
+      font-size: 1.2rem;
+    }
+  }
+
+  thead th > table {
+    width: auto;
+    text-align: left;
+  }
+
+  .filters, .filters label {
+    padding: 0;
+    margin: 0;
+
+    td {
+      padding-top: 0;
+      margin-top: 0;
+      border-top: none;
+    }
+  }
+
+  .headings th {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+table.grid-table.table-import {
+  tr.new, tr.new td {
+    background: #CCFFCC;
+  }
+
+  tr.existing, tr.existing td {
+    background: #FFFFCC;
+  }
+}
+
+table.grid-table.list {
+  border-spacing: 0 0.5rem !important;
+  border-collapse: separate !important;
+
+  tr {
+    border: none;
+
+    td:first-child {
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+    }
+
+    td:last-child {
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  }
+}
+
+.grid-tiles {
+  .col {
+  }
+}
+
+.grid-tile {
+  .card-header {
+    padding: 0;
+  }
+
+  .card-img {
+    background: #FFF;
+
+    img {
+      max-width: 100% !important;
+      min-width: 100% !important;
+      width: 100% !important;
+      height: auto !important;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+}

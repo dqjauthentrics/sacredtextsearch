@@ -1,0 +1,26 @@
+<div *ngIf="searchService.chapter?.tome && searchService.chapter?.selectedVerse" class="chapter">
+	<div class="text-right">
+		<i tabindex="0" class="clickable float-right fas fa-times" (keyup)="hideMe()" (click)="hideMe()"></i>
+	</div>
+	<div *ngIf="chapterHeader" class="chapter-header">
+		<div>{{ chapterHeader.tomeBook }}</div>
+		<div *ngIf="chapterHeader.chapterName" class="chapter-name">
+			{{ chapterHeader.chapterName }}
+		</div>
+		<div *ngIf="chapterHeader.translationText" class="translation-text">
+			Translation: {{ chapterHeader.translationText }}
+		</div>
+	</div>
+
+	<div id="chapterScroll">
+		<div class="grid" *ngIf="searchService.chapter && searchService.chapter.verses">
+			<ng-container *ngFor="let verse of searchService.chapter.verses">
+				<div [class]="'verse ' + (verse.id === searchService.chapter.selectedVerse?.id? 'highlight':'')">
+					<div class="verse-number">Verse: {{ verse.verseNumber }}</div>
+					<div class="verse-body">{{ verse.body }}</div>
+				</div>
+			</ng-container>
+		</div>
+	</div>
+</div>
+

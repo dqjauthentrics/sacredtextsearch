@@ -1,0 +1,21 @@
+.grid-gauge {
+  padding: 0;
+  text-align: center;
+  margin: auto auto;
+  color: rgba(100, 100, 100, 0.0);
+
+  .label {
+    margin-top: -16px;
+    color: #444;
+    font-style: italic;
+    height: auto;
+    font-size: 10px;
+    line-height: 10px;
+    padding-bottom: 10px;
+  }
+
+  .gauge {
+    max-height: 60px;
+    overflow: hidden;
+  }
+}

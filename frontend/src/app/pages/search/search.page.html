@@ -1,0 +1,79 @@
+<div class="page-header">
+	<div class="row page-header-bar">
+		<div class="col-auto">
+			<div class="app-title">
+				<a class="header-title" href="/"><img
+						class="logo" src="/assets/images/sacred-text-search-logo.svg"
+						alt="logo"></a>
+				<a class="header-title" href="/"><img
+						class="title" src="/assets/images/sacred-text-search-text.svg"
+						alt="Sacred Text Search"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page">
+	<div class="grid">
+		<div class="row py-4">
+			<div class="col-auto search-left-col col-xs-12 col-sm-12 col-md-8 col-lg-9 col-lg-9"
+				 [class]="'ion-padding ion-align-self-stretch'">
+				<div class="row">
+					<div role="button" tabindex="0"
+						 [class]="'col filter-icon ' + (tomeSelect.selected? '':'unselected')"
+						 *ngFor="let tomeSelect of tomeSelects"
+						 (keyup)="tomeToggle(tomeSelect)"
+						 (click)="tomeToggle(tomeSelect)">
+						<div [innerHTML]="tomeSelect.icon"></div>
+						<div>{{ tomeSelect.name }}</div>
+						<div class="check"><i [class]="'check fal ' + (tomeSelect.selected? 'fa-check-square' : 'fa-square')"></i></div>
+					</div>
+				</div>
+				<grid *ngIf="gridConfig" [config]="gridConfig"></grid>
+				<welcome *ngIf="nQueryHits === 0"></welcome>
+			</div>
+			<div [class]="'col-xs-12 col-sm-12 col-md-4 col-lg-3 col-lg-3 col-auto search-right-col ion-align-self-stretch' + (nQueryHits === 0 ? ' no-cloud':'')">
+				<div [hidden]="nQueryHits === 0">
+					<word-cloud-card></word-cloud-card>
+				</div>
+				<div class="card my-2">
+					<div class="card-header">
+						<div class="card-title">Support this Site</div>
+					</div>
+					<div class="card-content p-2">
+						<ad-block-check (canShowAds)="canShowAds = $event"></ad-block-check>
+						<div id="searchAdWrapper">
+							<p class="text-left">
+								Please consider supporting our ongoing efforts to add texts and features to this site.
+							</p>
+							<shareasale-ads-widget *ngIf="canShowAds" [refresh]="refreshAds" [publisherId]="2263857"></shareasale-ads-widget>
+							<!--							<ad-links-widget *ngIf="canShowAds"></ad-links-widget>-->
+							<paypal-donation *ngIf="!canShowAds"></paypal-donation>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div #sourcePop="bs-popover" [popover]="sourceTemplate"></div>
+<ng-template #contactTemplate>
+	<ng-container #contactContainer></ng-container>
+</ng-template>
+<ng-template #sourceTemplate>
+	<ng-container #sourceContainer></ng-container>
+</ng-template>
+<div id="filterCollection" *ngIf="showCollectionsFilter">
+	<filter-collection (hide)="showCollectionsFilter = false"></filter-collection>
+</div>
+<div id="verseTranslations" *ngIf="showVerseTranslations">
+	<verse-translations-panel
+			(hide)="showVerseTranslations = false"
+			[refresher]="verseRefresher">
+	</verse-translations-panel>
+</div>
+<div id="chapterPanel" *ngIf="showChapter">
+	<chapter-panel [refresher]="chapterRefresher" (hide)="showChapter = false"></chapter-panel>
+</div>
+
+

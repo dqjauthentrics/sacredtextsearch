@@ -1,0 +1,20 @@
+<ng-container [ngSwitch]="rank">
+    <div [class]="'score score_' + rank">
+        <ng-container *ngSwitchCase="5">
+            <i class="fas fa-signal-bars"></i>
+        </ng-container>
+        <ng-container *ngSwitchCase="4">
+            <i class="fas fa-signal-strong"></i>
+        </ng-container>
+        <ng-container *ngSwitchCase="3">
+            <i class="fas fa-signal-good"></i>
+        </ng-container>
+        <ng-container *ngSwitchCase="2">
+            <i class="fas fa-signal-fair"></i>
+        </ng-container>
+        <ng-container *ngSwitchCase="1">
+            <i class="fas fa-signal-weak"></i>
+        </ng-container>
+        <ng-container *ngSwitchDefault>{{rank}}</ng-container>
+    </div>
+</ng-container>

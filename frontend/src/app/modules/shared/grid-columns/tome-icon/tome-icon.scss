@@ -1,0 +1,29 @@
+.tome {
+  fa-icon {
+    font-size: 2rem;
+  }
+
+  .tome-icon {
+    font-size: 3rem;
+  }
+
+  img {
+    height: 3rem;
+    width: 3rem;
+    display: inline;
+  }
+
+  .name {
+    font-size: 0.85rem;
+    line-height: 0.95rem;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .source {
+    cursor: pointer;
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    font-style: italic;
+  }
+}

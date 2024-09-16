@@ -1,0 +1,17 @@
+<ng-container *ngIf="button && (button.text || button.icon)">
+	<button *ngIf="!button.confirmation" [hidden]="!isVisible()"
+			[class]="'btn grid-button' + (button.classes ? ' ' + button.classes : '')"
+			tabindex="0"
+			(click)="actionClick(button, $event)">
+        <span class="grid-button table-row">
+            <span *ngIf="button.text && button.text.length > 0" class="table-cell text">{{button.text}}</span>
+            <span *ngIf="button.icon" class="table-cell icon"><i [class]="button.icon"></i></span>
+        </span>
+	</button>
+	<grid-confirmation-button
+			*ngIf="button.confirmation"
+			[hidden]="!isVisible()"
+			[button]="button"
+			(confirmed)="actionClick(button, $event)">
+	</grid-confirmation-button>
+</ng-container>

@@ -1,0 +1,13 @@
+.grid-debug {
+    .quadrants {
+        td {
+            width: 2rem;
+            height: 0.5rem;
+            background: transparent;
+            border: 1px solid #444;
+        }
+        .used {
+            background: darkgreen;
+        }
+    }
+}

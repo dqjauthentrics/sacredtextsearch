@@ -1,0 +1,11 @@
+<div class="card visualization">
+    <div class="card-header">
+        <div class="card-title">{{'Word Map'|translate}}</div>
+    </div>
+    <div class="card-content">
+        <div id="cloudWrapper" class="cloud-wrapper">
+            <div class="word-cloud-placeholder" *ngIf="!cloudData || cloudData.length === 0"></div>
+            <div *ngIf="cloudData && cloudData.length > 0" WordCloud [width]="getWidth()" #cloud=word-cloud [wordData]="cloudData" [options]="options"></div>
+        </div>
+    </div>
+</div>

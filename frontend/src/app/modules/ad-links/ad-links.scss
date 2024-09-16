@@ -1,0 +1,17 @@
+.ad-links {
+  .ad-link {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    background: #F8F8F8;
+  }
+
+  .ad-link:hover {
+    background: #F4F4F4;
+  }
+
+  .ad-link-title {
+    font-weight: 700;
+  }
+}

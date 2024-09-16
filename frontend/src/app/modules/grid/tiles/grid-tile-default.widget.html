@@ -1,0 +1,21 @@
+<div *ngIf="spec && config && item" class="grid-tile card h-100"
+	 [class.clickable]="!!config.itemClick" (click)="itemClick(item)">
+    <div class="card-header">
+        <div *ngIf="image" class="card-img"><img [src]="image"
+												 [alt]="spec.imageAlt||'Item Image'|translate"
+												 crossorigin="anonymous"/></div>
+    </div>
+    <div class="card-body">
+        <div class="card-title" [innerHTML]="title"></div>
+        <div class="table" *ngIf="spec.bodyColSpecs">
+            <div class="table-row" *ngFor="let bodyColSpec of spec.bodyColSpecs">
+                <div class="table-cell">{{bodyColSpec.heading || bodyColSpec.name}}:</div>
+                <div class="table-cell"
+					 [innerHTML]="item?.__colValues[bodyColSpec.__colIndex]||''"></div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div *ngIf="spec.footer" [innerHTML]="item?.record[spec.footer]||''"></div>
+    </div>
+</div>

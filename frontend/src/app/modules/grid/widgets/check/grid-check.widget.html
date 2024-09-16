@@ -1,0 +1,9 @@
+<ng-container *ngIf="item && config && colSpec && colSpec.editable && config.__inlineEditingIndex === item.__index; else nonEdit">
+    <label>
+        <input type="checkbox" [(ngModel)]="value"
+               (change)="value = gridService.inlineChangeNotice(config, colSpec, item, value); setClasses();"/>
+    </label>
+</ng-container>
+<ng-template #nonEdit>
+    <i [class]="checkClasses"></i>
+</ng-template>

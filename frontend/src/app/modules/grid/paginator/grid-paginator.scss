@@ -1,0 +1,38 @@
+@import "../grid.variables";
+
+.paginator {
+    .table {
+        margin: 0 auto;
+        width: auto;
+
+        .table-cell {
+            vertical-align: middle;
+        }
+    }
+
+    .table.table, .table .table {
+        background: transparent;
+    }
+
+    .page-stop {
+        background: $paginator-page-background;
+        color: $paginator-page-color;
+        text-align: center;
+        padding: .5rem .75rem;
+
+        &.first {
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+        }
+
+        &.last {
+            border-top-right-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+
+        &.selected {
+            background: $paginator-page-selected-background;
+            color: $paginator-page-selected-color;
+        }
+    }
+}

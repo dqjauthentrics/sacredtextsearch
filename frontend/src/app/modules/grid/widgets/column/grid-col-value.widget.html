@@ -1,0 +1,14 @@
+<ng-container *ngIf="config && colSpec" [ngSwitch]="colSpec.type">
+    <grid-text *ngSwitchCase="'text'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-text>
+    <grid-image *ngSwitchCase="'image'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-image>
+    <grid-date *ngSwitchCase="'date'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-date>
+    <grid-list *ngSwitchCase="'list'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-list>
+    <grid-avatar *ngSwitchCase="'avatar'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-avatar>
+    <grid-icon *ngSwitchCase="'icon'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-icon>
+    <grid-email *ngSwitchCase="'email'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-email>
+    <grid-check *ngSwitchCase="'check'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-check>
+    <grid-lookup *ngSwitchCase="'lookup'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-lookup>
+    <grid-time-ago *ngSwitchCase="'time-ago'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-time-ago>
+    <grid-custom-value *ngSwitchCase="'custom'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-custom-value>
+    <grid-gauge *ngSwitchCase="'gauge'" [item]="item" [colSpec]="colSpec" [config]="config"></grid-gauge>
+</ng-container>

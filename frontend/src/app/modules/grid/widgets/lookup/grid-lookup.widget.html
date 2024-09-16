@@ -1,0 +1,16 @@
+<ng-container *ngIf="item && config && colSpec && spec">
+    <ng-container *ngIf="colSpec.editable && config.__inlineEditingIndex === item.__index; else nonEdit">
+        <label>
+            <select
+                [(ngModel)]="selectedValue" [class]="'grid-lookup' + (spec.classes? ' ' + spec.classes : '')"
+                (ngModelChange)="valueChange(config, colSpec, item)">
+                <option *ngFor="let lookupItem of spec.items" [ngValue]="lookupItem[valueColName]">
+                    {{lookupItem[displayColName]}}
+                </option>
+            </select>
+        </label>
+    </ng-container>
+    <ng-template #nonEdit>
+        {{displayValue}}
+    </ng-template>
+</ng-container>

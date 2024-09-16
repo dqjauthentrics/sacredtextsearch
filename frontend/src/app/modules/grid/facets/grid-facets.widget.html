@@ -1,0 +1,9 @@
+<div *ngIf="facetSpecs" [class]="'grid-facets ' + (position === 'top' || position === 'bottom' ? 'row' : 'full-width')">
+    <ng-container *ngFor="let facetSpec of facetSpecs">
+        <ng-container *ngIf="facetSpec.position === position">
+            <div [class]="position === 'top' || position === 'bottom' ? 'col-auto' : 'full-width'">
+                <grid-facet [facetSpec]="facetSpec" [orientation]="position" (facetChange)="facetChanged()"></grid-facet>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

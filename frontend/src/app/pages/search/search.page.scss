@@ -1,0 +1,153 @@
+@import "../../scss/variables";
+
+.app-title, .header-title, .header-title:hover .header-title a, .header-title a:hover {
+  background: transparent !important;
+  color: white !important;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Inknut Antiqua', serif;
+
+  img.logo {
+    height: 60px;
+    width: auto;
+    padding: 10px;
+  }
+
+  img.title {
+    height: 28px;
+  }
+}
+
+#filterCollection {
+  background: #F0F5FE;
+  padding: 1rem;
+  height: 100%;
+  width: 30vw;
+  min-width: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: auto;
+}
+
+#verseTranslations {
+  background: #F0FFF5;
+  padding: 1rem;
+  height: 100%;
+  width: 30vw;
+  min-width: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: auto;
+}
+
+#chapterPanel {
+  background: #FFF5F5;
+  padding: 1rem;
+  height: 100%;
+  width: 30vw;
+  min-width: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: auto;
+}
+
+@media (max-width: 800px) {
+  .search-left-col {
+    margin-top: -40px;
+  }
+}
+
+.wordcloud-svg {
+  display: table-cell;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.checkboxes {
+  ion-col {
+    vertical-align: middle;
+    color: #FFF;
+
+    a, a:visited {
+      color: #FFF;
+    }
+  }
+}
+
+.unselected {
+  opacity: 0.5;
+}
+
+.filter-icon {
+  text-align: center;
+
+  .check {
+    font-size: 1.4rem;
+  }
+
+  i.icon {
+    font-size: 40px;
+  }
+
+  img.icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  .bible {
+    color: #6677DD;
+  }
+
+  .quran {
+    color: #AA4444;
+  }
+
+  .other {
+    color: #884488;
+  }
+}
+
+.sc-ion-card-md-h {
+  box-shadow: none !important;
+}
+
+.tome-cell {
+  min-width: 150px;
+  text-align: center;
+
+  fa-icon, i {
+    margin: 4px;
+  }
+}
+
+td.middle {
+  vertical-align: middle !important;
+  text-align: center !important;
+  margin: auto auto !important;
+}
+
+i.rank {
+  padding-bottom: 18px;
+}
+
+.search-collections-link {
+  cursor: pointer;
+  text-align: right;
+  padding: 1rem;
+}
+
+.search-collections-link:hover {
+  text-decoration: underline;
+}
+
+.amzn-native-header {
+  text-align: center !important;
+  color: $brand-primary !important;
+}
+

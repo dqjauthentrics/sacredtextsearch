@@ -1,0 +1,8 @@
+<div class="ad-links">
+	<h2>{{title}}</h2>
+	<button tabindex="0" class="ad-link w-100"
+		 *ngFor="let ad of adLinksService.getAds(nAds)" (click)="goToAd(ad)">
+		<div class="ad-link-title">{{ad.title}}</div>
+		<div class="ad-link-blurb" [innerHTML]="ad.blurb"></div>
+	</button>
+</div>

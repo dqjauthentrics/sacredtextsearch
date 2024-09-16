@@ -1,0 +1,119 @@
+@import "variables";
+
+.table {
+  display: table;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  padding: 2px 6px;
+  vertical-align: middle;
+}
+
+.table-outline {
+  border: 1px solid $table-border-color;
+
+  td {
+    vertical-align: middle;
+  }
+}
+
+.table-align-middle {
+  td {
+    vertical-align: middle;
+  }
+}
+
+.table-clear {
+  td {
+    border: 0;
+  }
+}
+
+.table thead th, .table thead td {
+  background: $table-head-bg;
+  color: $table-head-color;
+}
+
+thead th {
+  a, a:not([href]):not([tabindex]) {
+    color: $table-head-color !important;
+  }
+}
+
+thead tr:first-child {
+  border-top: none;
+
+  th, td {
+    border-top: none;
+  }
+}
+
+thead tr:first-child th:first-child {
+  border-top-left-radius: 8px;
+}
+
+thead tr:first-child th:last-child {
+  border-top-right-radius: 8px;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+.table-striped {
+  tbody tr:nth-of-type(odd) td {
+    background-color: $table-bg-odd;
+  }
+
+  tbody tr:nth-of-type(even) td {
+    background-color: $table-bg-even;
+  }
+
+  tbody tr:nth-of-type(odd) {
+    background-color: transparent !important;
+  }
+
+  tbody tr:nth-of-type(odd) td {
+    background-color: $table-bg-accent;
+  }
+}
+
+table.transparent {
+  background: transparent !important;
+  width: 100% !important;
+
+  tr, td, th {
+    background: transparent !important;
+    border: none !important;
+  }
+}
+
+tr.selected, tr.selected-right {
+  border: none;
+
+  td {
+    background: $table-selected-background !important;
+    color: $table-selected-color !important;
+  }
+}
+
+tr.even > td {
+  background: $table-bg-even;
+}
+
+tr.odd > td {
+  background: $table-bg-odd;
+}
+
+th {
+  vertical-align: middle;
+}

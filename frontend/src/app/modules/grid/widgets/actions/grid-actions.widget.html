@@ -1,0 +1,11 @@
+<div *ngIf="config && spec" class="grid-actions">
+    <ng-container *ngFor="let button of spec.buttons">
+        <grid-button [config]="config" [item]="item" [button]="button"></grid-button>
+    </ng-container>
+    <ng-container *ngIf="spec.inlineEditSpec">
+        <span class="fa-stack fa-2x grid-stack-btn clickable" (click)="setEditing(true)">
+              <i class="fad fa-stopwatch fa-stack-2x grid-stack-btn-bottom"></i>
+              <i class="fad fa-pencil-alt fa-stack-1x fa-flip-horizontal grid-stack-btn-top"></i>
+        </span>
+    </ng-container>
+</div>

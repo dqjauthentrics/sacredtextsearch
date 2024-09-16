@@ -1,0 +1,14 @@
+.chapter {
+  .chapter-header {
+    font-weight: bold;
+  }
+
+  .verse {
+    margin-bottom: 1rem;
+  }
+
+  #chapterScroll {
+    overflow: auto;
+    border: 1px solid #EEE;
+  }
+}

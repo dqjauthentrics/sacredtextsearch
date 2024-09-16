@@ -1,0 +1,26 @@
+<div *ngIf="state && state.numPages && state.numPages > 1" [class]="'paginator' + (state.className? ' ' + state.className: '')">
+    <!--div>{{state.__pageStopShows|json}}</div-->
+    <div class="table" *ngIf="state.pageStops">
+        <div class="table-row">
+            <button tabindex="0" [class]="'table-cell page-stop first clickable'" (click)="first()">
+                <i class="fad fa-step-backward"></i>
+            </button>
+            <button tabindex="0" [class]="'table-cell page-stop previous clickable'" (click)="previous()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <ng-container *ngFor="let page of state.pageStops; let btnIdx = index">
+                <button tabindex="0"
+                        [hidden]="!state.__pageStopShows || !state.__pageStopShows[btnIdx]"
+                        [class]="'table-cell page-stop'" [class.selected]="page===state.pageNum" (click)="changed(page)">
+                    {{page + 1}}
+                </button>
+            </ng-container>
+            <button tabindex="0" [class]="'table-cell page-stop next clickable'" (click)="next()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button tabindex="0" [class]="'table-cell page-stop last clickable'" (click)="last()">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+    </div>
+</div>

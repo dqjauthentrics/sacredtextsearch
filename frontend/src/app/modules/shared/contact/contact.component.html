@@ -1,0 +1,28 @@
+<div class="card">
+	<div class="card-header">
+		<h1>Feedback/Contact</h1>
+	</div>
+	<div class="card-content">
+		<form>
+			<div>
+				<input id="name" type="text" name="name" class="input"
+					   placeholder="Your Name" [(ngModel)]="name"/>
+			</div>
+			<div>
+				<input id="email" type="email" name="email" class="input"
+					   placeholder="Your Email" [(ngModel)]="email"/>
+			</div>
+			<div>
+				<textarea id="body" class="textarea" name="message"
+						  placeholder="What would you like to say?" [(ngModel)]="body"></textarea>
+			</div>
+			<button type="submit" (click)="sendEmail()" [disabled]="!isValid()">Submit</button>
+			<div *ngIf="sending" class="text-center p-2">
+				<i class="fad fa-recycle fa-spin"></i> Sending...
+			</div>
+		</form>
+	</div>
+</div>
+<ng-template #alertTemplate>
+	<ng-container #alertContainer></ng-container>
+</ng-template>

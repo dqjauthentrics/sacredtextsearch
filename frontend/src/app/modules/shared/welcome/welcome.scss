@@ -1,0 +1,12 @@
+p {
+  margin: 1rem;
+  color: #222;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+ion-card-header h1 {
+  margin-top: 0;
+}
