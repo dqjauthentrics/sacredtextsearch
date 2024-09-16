@@ -22,7 +22,9 @@ Religion --+
                   |
                 Book --+
                         |
-                      Verse
+                      Chapter --+
+                                |
+                              Verse
 ```
 
 The `backend/database/loads` directory contains some of the code
