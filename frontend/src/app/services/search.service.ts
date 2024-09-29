@@ -19,6 +19,7 @@ export interface SearchChapter {
 	tome: TomeInterface | null;
 	selectedVerse: VerseInterface;
 	verses: Array<VerseInterface>;
+	title: string | null | undefined;
 	name: string | null | undefined;
 }
 
@@ -55,8 +56,8 @@ export class SearchService extends AppDataService<any> {
 			if (t) {
 				header.translationText = t.name;
 			}
-			if (chapter.name) {
-				header.chapterName = chapter.name;
+			if (chapter.name || chapter.title) {
+				header.chapterName = this.concatMaybe(chapter.name, chapter.title);
 			} else {
 				header.chapterName = 'Chapter ' + chapter.selectedVerse.chapterNumber
 			}

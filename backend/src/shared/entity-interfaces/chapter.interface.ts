@@ -6,5 +6,6 @@ export class ChapterInterface {
   translationId!: number;
   chapterNumber!: number;
   name!: string;
+  title!: string;
   verses?: Array<VerseInterface>;
 }

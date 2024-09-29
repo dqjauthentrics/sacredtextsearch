@@ -176,7 +176,13 @@ export class SearchPage implements OnInit, OnDestroy {
 						verse.book.tome = tome;
 					}
 					this.searchService.verseTranslations = null;
-					this.searchService.chapter = {tome: tome, selectedVerse: verse, verses: chapter.verses || [], name: chapter.name};
+					this.searchService.chapter = {
+						tome,
+						selectedVerse: verse,
+						verses: chapter.verses || [],
+						name: chapter.name,
+						title: chapter.title
+					};
 					this.showCollectionsFilter = false;
 					this.showVerseTranslations = false;
 					this.showChapter = true;
