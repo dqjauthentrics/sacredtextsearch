@@ -50,7 +50,7 @@ export class SearchPage implements OnInit, OnDestroy {
 	public query: string | null = null;
 	public nQueryHits = 0;
 	public verseRefresher = true;
-	public chapterRefresher = true;
+	public chapterRefresher?: any;
 
 	public tomeSelects: Array<TomeSelect> = [
 		{
@@ -186,7 +186,7 @@ export class SearchPage implements OnInit, OnDestroy {
 					this.showCollectionsFilter = false;
 					this.showVerseTranslations = false;
 					this.showChapter = true;
-					this.chapterRefresher = !this.chapterRefresher;
+					this.chapterRefresher = this.searchService.chapter;
 				}
 			});
 	}

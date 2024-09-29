@@ -73,7 +73,10 @@
 	</verse-translations-panel>
 </div>
 <div id="chapterPanel" *ngIf="showChapter">
-	<chapter-panel [refresher]="chapterRefresher" (hide)="showChapter = false"></chapter-panel>
+	<chapter-panel
+			[searchChapter]="chapterRefresher"
+			(hide)="showChapter = false"
+	></chapter-panel>
 </div>
 
 

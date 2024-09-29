@@ -18,6 +18,7 @@
 			<input id="val" *ngIf="item.value.id > 0"
 				   type="checkbox"
 				   class="form-check-input"
+				   name="dummyName" id="dummyId"
 				   [(ngModel)]="item.checked"
 				   (ngModelChange)="onCheckedChange()"
 				   (change)="changeNotify()"

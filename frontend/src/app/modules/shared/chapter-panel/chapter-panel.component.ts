@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
-import {ChapterHeader, SearchService} from '@services/search.service';
+import {ChapterHeader, SearchChapter, SearchService} from '@services/search.service';
 
 @Component({
 	selector: 'chapter-panel',
@@ -7,7 +7,7 @@ import {ChapterHeader, SearchService} from '@services/search.service';
 	styleUrls: ['chapter-panel.scss'],
 })
 export class ChapterPanelComponent implements OnInit, OnChanges {
-	@Input() refresher = true;
+	@Input() searchChapter?: SearchChapter;
 	@Output() hide = new EventEmitter<void>();
 	public icon: string | null = null;
 	public chapterHeader: ChapterHeader | null = null;
@@ -17,6 +17,9 @@ export class ChapterPanelComponent implements OnInit, OnChanges {
 
 	ngOnChanges(): void {
 		this.setHeaderInfo();
+		setTimeout(() => {
+			this.scrollToChapter();
+		}, 100);
 	}
 
 	ngOnInit(): void {
@@ -25,6 +28,21 @@ export class ChapterPanelComponent implements OnInit, OnChanges {
 
 	public hideMe() {
 		this.hide.emit();
+	}
+
+	private scrollToChapter() {
+		console.log('scrolling...');
+		const div = document.getElementById('chapterScroll');
+		if (div) {
+			const highlightDivs = div.getElementsByClassName('highlight');
+			if (highlightDivs) {
+				highlightDivs[0].scrollIntoView({behavior: 'smooth', block: 'center'});
+			} else {
+				console.log('not found');
+			}
+		} else {
+			console.log('bad div');
+		}
 	}
 
 	private setHeaderInfo(): void {
