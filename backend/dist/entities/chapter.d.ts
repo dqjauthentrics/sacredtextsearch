@@ -5,5 +5,6 @@ export declare class Chapter {
     translationId: number;
     chapterNumber: number;
     name: string;
+    title: string;
     verses?: Array<Verse>;
 }

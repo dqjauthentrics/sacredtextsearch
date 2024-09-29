@@ -28,7 +28,7 @@ const natural = require('natural');
 
 @Controller('/search')
 export class SearchController {
-  private debug = false;
+  private debug = true;
   private bookRepo: Repository<Book>;
   private chapterRepo: Repository<Chapter>;
   private verseRepo: Repository<Verse>;
@@ -71,6 +71,7 @@ export class SearchController {
     chapter.chapterNumber = chapterNum;
     chapter.translationId = translationId;
     chapter.name = '';
+    chapter.title = '';
     await this.chapterRepo
       .findOne({
         where: {

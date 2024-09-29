@@ -1,4 +1,4 @@
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 1, 'CHAPTER I', 'The Distress of Arjuna');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 1, 'CHAPTER I: The Distress of Arjuna');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 1, 1, 'Dhritirashtra:');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 1, 2, 'Ranged thus for battle on the sacred plain--');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 1, 3, 'On Kurukshetra--say, Sanjaya! say');
@@ -141,7 +141,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 1, 140, 'HERE ENDETH CHAPTER I. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 1, 141, 'Entitled \"Arjun-Vishad,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 1, 142, 'Or \"The Book of the Distress of Arjuna.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 2, 'CHAPTER II', 'The Book of Doctrines');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 2, 'CHAPTER II: The Book of Doctrines');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 2, 1, 'Sanjaya.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 2, 2, 'Him, filled with such compassion and such grief,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 2, 3, 'With eyes tear-dimmed, despondent, in stern words');
@@ -419,7 +419,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 2, 275, 'HERE ENDETH CHAPTER II. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 2, 276, 'Entitled \"Sankhya-Yog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 2, 277, 'Or \"The Book of Doctrines.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 3, 'CHAPTER III', 'Virtue in Work');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 3, 'CHAPTER III: Virtue in Work');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 3, 1, 'Arjuna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 3, 2, 'Thou whom all mortals praise, Janardana!');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 3, 3, 'If meditation be a nobler thing');
@@ -570,7 +570,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 3, 148, 'HERE ENDETH CHAPTER III. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 3, 149, 'Entitled \"Karma-Yog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 3, 150, 'Or \"The Book of Virtue in Work.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 4, 'CHAPTER IV', 'The Religion of Knowledge');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 4, 'CHAPTER IV: The Religion of Knowledge');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 4, 1, 'Krishna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 4, 2, 'This deathless Yoga, this deep union,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 4, 3, 'I taught Vivaswata,[FN#6] the Lord of Light;');
@@ -728,7 +728,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 4, 155, 'HERE ENDETH CHAPTER IV. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 4, 156, 'Entitled \"Jnana Yog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 4, 157, 'Or \"The Book of the Religion of Knowledge,\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 5, 'CHAPTER V', 'Religion of Renouncing Works');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 5, 'CHAPTER V: Religion of Renouncing Works');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 5, 1, 'Arjuna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 5, 2, 'Yet, Krishna! at the one time thou dost laud');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 5, 3, 'Surcease of works, and, at another time,');
@@ -836,7 +836,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 5, 105, 'HERE ENDS CHAPTER V. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 5, 106, 'Entitled \"Karmasanyasayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 5, 107, 'Or \"The Book of Religion by Renouncing Fruit of Works.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 6, 'CHAPTER VI', 'Religion by Self-restraint');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 6, 'CHAPTER VI: Religion by Self-restraint');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 6, 1, 'Krishna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 6, 2, 'Therefore, who doeth work rightful to do,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 6, 3, 'Not seeking gain from work, that man, O Prince!');
@@ -1005,7 +1005,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 6, 166, 'HERE ENDETH CHAPTER VI. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 6, 167, 'Entitled \"Atmasanyamayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 6, 168, 'Or \"The Book of Religion by Self-Restraint.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 7, 'CHAPTER VII', 'Religion by Discernment');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 7, 'CHAPTER VII: Religion by Discernment');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 7, 1, 'Krishna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 7, 2, 'Learn now, dear Prince! how, if thy soul be set');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 7, 3, 'Ever on Me--still exercising Yog,');
@@ -1115,7 +1115,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 7, 107, 'HERE ENDETH CHAPTER VII. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 7, 108, 'Entitled \"Vijnanayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 7, 109, 'Or \"The Book of Religion by Discernment.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 8, 'CHAPTER VIII', 'Religion by Service of the Supreme');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 8, 'CHAPTER VIII: Religion by Service of the Supreme');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 8, 1, 'Arjuna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 8, 2, 'Who is that BRAHMA? What that Soul of Souls,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 8, 3, 'The ADHYATMAN? What, Thou Best of All!');
@@ -1214,7 +1214,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 8, 96, 'HERE ENDETH CHAPTER VIII. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 8, 97, 'Entitled \"Aksharaparabrahmayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 8, 98, 'Or \"The book of Religion by Devotion to the One Supreme God.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 9, 'CHAPTER IX', 'Religion by the Kingly Knowledge and the Kingly Mystery');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 9, 'CHAPTER IX: Religion by the Kingly Knowledge and the Kingly Mystery');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 9, 1, 'Krishna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 9, 2, 'Now will I open unto thee--whose heart');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 9, 3, 'Rejects not--that last lore, deepest-concealed,');
@@ -1355,7 +1355,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 9, 138, 'Entitled \"Rajavidyarajaguhyayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 9, 139, 'Or \"The Book of Religion by the Kingly Knowledge and the Kingly');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 9, 140, 'Mystery.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 10, 'CHAPTER X', 'Religion by the Heavenly Perfections');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 10, 'CHAPTER X: Religion by the Heavenly Perfections');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 10, 1, 'Krishna.[FN#l6]');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 10, 2, 'Hear farther yet, thou Long-Armed Lord! these latest words I say--');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 10, 3, 'Uttered to bring thee bliss and peace, who lovest Me alway--');
@@ -1478,7 +1478,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 10, 120, 'HERE ENDETH CHAPTER X. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 10, 121, 'Entitled \"Vibhuti Yog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 10, 122, 'Or \"The Book of Religion by the Heavenly Perfections.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 11, 'CHAPTER XI', 'The Manifesting of the One and Manifold');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 11, 'CHAPTER XI: The Manifesting of the One and Manifold');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 11, 1, 'Arjuna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 11, 2, 'This, for my soul\'s peace, have I heard from Thee,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 11, 3, 'The unfolding of the Mystery Supreme');
@@ -1839,7 +1839,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 11, 358, 'HERE ENDETH CHAPTER XI. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 11, 359, 'Entitled \"Viswarupadarsanam,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 11, 360, 'Or \"The Book of the Manifesting of the One and Manifold.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 12, 'CHAPTER XII', 'Religion of Faith');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 12, 'CHAPTER XII: Religion of Faith');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 12, 1, 'Arjuna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 12, 2, 'Lord! of the men who serve Thee--true in heart--');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 12, 3, 'As God revealed; and of the men who serve,');
@@ -1914,7 +1914,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 12, 72, 'HERE ENDETH CHAPTER XII. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 12, 73, 'Entitled \"Bhaktiyog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 12, 74, 'Or\"The Book of the Religion of Faith.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 13, 'CHAPTER XIII', 'Religion by Separation of Matter and Spirit');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 13, 'CHAPTER XIII: Religion by Separation of Matter and Spirit');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 13, 1, 'Arjuna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 13, 2, 'Now would I hear, O gracious Kesava![FN#26]');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 13, 3, 'Of Life which seems, and Soul beyond, which sees,');
@@ -2046,7 +2046,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 13, 129, 'HERE ENDS CHAPTER XIII. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 13, 130, 'Entitled \"Kshetrakshetrajnavibhagayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 13, 131, 'Or \"The Book of Religion by Separation of Matter and Spirit.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 14, 'CHAPTER XIV', 'Religion by Separation from the Qualities');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 14, 'CHAPTER XIV: Religion by Separation from the Qualities');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 14, 1, 'Krishna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 14, 2, 'Yet farther will I open unto thee');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 14, 3, 'This wisdom of all wisdoms, uttermost,');
@@ -2149,7 +2149,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 14, 100, 'HERE ENDS CHAPTER XIV. OF THE BHAGAVAD-GITA');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 14, 101, 'Entitled \"Gunatrayavibhagayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 14, 102, 'Or \"The Book of Religion by Separation from the Qualities.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 15, 'CHAPTER XV', 'Religion by Attaining the Supreme');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 15, 'CHAPTER XV: Religion by Attaining the Supreme');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 15, 1, 'Krishna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 15, 2, 'Men call the Aswattha,--the Banyan-tree,--');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 15, 3, 'Which hath its boughs beneath, its roots above,--');
@@ -2240,7 +2240,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 15, 88, 'HERE ENDS CHAPTER XV. OF THE BHAGAVAD-GITA');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 15, 89, 'Entitled \"Purushottamapraptiyog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 15, 90, 'Or \"The Book of Religion by attaining the Supreme.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 16, 'CHAPTER XVI', 'The Separateness of the Divine and Undivine');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 16, 'CHAPTER XVI: The Separateness of the Divine and Undivine');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 16, 1, 'Krishna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 16, 2, 'Fearlessness, singleness of soul, the will');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 16, 3, 'Always to strive for wisdom; opened hand');
@@ -2333,7 +2333,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 16, 90, 'HERE ENDETH CHAPTER XVI. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 16, 91, 'Entitled \"Daivasarasaupadwibhagayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 16, 92, 'Or \"The Book of the Separateness of the Divine and Undivine.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 17, 'CHAPTER XVII', 'Religion by the Threefold Faith');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 17, 'CHAPTER XVII: Religion by the Threefold Faith');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 17, 1, 'Arjuna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 17, 2, 'If men forsake the holy ordinance,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 17, 3, 'Heedless of Shastras, yet keep faith at heart');
@@ -2426,7 +2426,7 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 17, 90, 'HERE ENDETH CHAPTER XVII. OF THE BHAGAVAD-GITA,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 17, 91, 'Entitled \"Sraddhatrayavibhagayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 17, 92, 'Or \"The Book of Religion by the Threefold Kinds of Faith.\"');
-INSERT INTO chapter (book_id, translation_id, chapter_number, name, title) VALUES (119, 220, 18, 'CHAPTER XVIII', 'Religion by Deliverance and Renunciation');
+INSERT INTO chapter (book_id, translation_id, chapter_number, name) VALUES (119, 220, 18, 'CHAPTER XVIII: Religion by Deliverance and Renunciation');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 18, 1, 'Arjuna.');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 18, 2, 'Fain would I better know, Thou Glorious One!');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 18, 3, 'The very truth--Heart\'s Lord!--of Sannyas,');
@@ -2718,4 +2718,3 @@ INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) 
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 18, 289, 'HERE ENDS, WITH CHAPTER XVIII.,');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 18, 290, 'Entitled \"Mokshasanyasayog,\"');
 INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 18, 291, 'Or \"The Book of Religion by Deliverance and Renunciation,\"');
-INSERT INTO verse (book_id, translation_id, chapter_number, verse_number, body) VALUES (119, 220, 18, 292, 'THE BHAGAVAD-GITA.');

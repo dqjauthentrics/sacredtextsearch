@@ -34,6 +34,10 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'varchar', length: 500, nullable: false }),
     __metadata("design:type", String)
 ], Chapter.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar', length: 1000 }),
+    __metadata("design:type", String)
+], Chapter.prototype, "title", void 0);
 exports.Chapter = Chapter = __decorate([
     (0, typeorm_1.Entity)('chapter')
 ], Chapter);

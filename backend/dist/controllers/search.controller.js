@@ -27,7 +27,7 @@ const HttpStatus = require('http-status-codes');
 const natural = require('natural');
 let SearchController = class SearchController {
     constructor() {
-        this.debug = false;
+        this.debug = true;
         this.dataSource = global.ServerConfig.dataSource;
         this.bookRepo = this.dataSource.getRepository(book_1.Book);
         this.chapterRepo = this.dataSource.getRepository(chapter_1.Chapter);
@@ -53,6 +53,7 @@ let SearchController = class SearchController {
         chapter.chapterNumber = chapterNum;
         chapter.translationId = translationId;
         chapter.name = '';
+        chapter.title = '';
         await this.chapterRepo
             .findOne({
             where: {

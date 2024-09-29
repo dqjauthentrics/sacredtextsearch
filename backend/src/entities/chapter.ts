@@ -18,6 +18,9 @@ export class Chapter {
   @Column({ type: 'varchar', length: 500, nullable: false })
   name!: string;
 
+  @Column({ type: 'varchar', length: 1000 })
+  title!: string;
+
   // Not related by key.
   verses?: Array<Verse>;
 }

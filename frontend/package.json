@@ -4,7 +4,7 @@
   "author": "David Quinn-Jacobs",
   "scripts": {
     "ng": "ng",
-    "serve": "ng serve",
+    "serve": "ng serve --port=4242",
     "build": "ng build",
     "lint": "ng lint"
   },
