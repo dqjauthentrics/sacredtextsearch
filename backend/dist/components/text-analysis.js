@@ -22,7 +22,7 @@ class TextAnalysis {
                         }
                     }
                 }
-                for (let word in fullText) {
+                for (const word in fullText) {
                     if (fullText.hasOwnProperty(word)) {
                         if (fullText[word] > 1) {
                             list.push({ size: fullText[word], text: word });
@@ -44,13 +44,13 @@ class TextAnalysis {
     }
     getWords(cleanedText) {
         if (cleanedText) {
-            let words = cleanedText.toLowerCase().split(' ');
+            const words = cleanedText.toLowerCase().split(' ');
             return this.strip(words);
         }
         return '';
     }
     strip(words) {
-        let newList = [];
+        const newList = [];
         if (words) {
             for (let i = 0; i < words.length; i++) {
                 if (_stop_words_1.stopWordList.indexOf(words[i]) < 0) {

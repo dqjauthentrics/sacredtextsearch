@@ -3,7 +3,7 @@ import {Verse} from '../../src/entities/Verse';
 import {violenceWordList} from '../../src/components/_violence-words';
 import {mythWordList} from '../../src/components/_myth-words';
 import {submissionWordList} from '../../src/components/_submission-words';
-import {VerseCharacterization} from '../../src/entities/VerseCharacterization';
+import {VerseCharacterization} from '../../src/entities/verse-characterization';
 
 const lda = require('lda');
 const natural = require('natural');
@@ -46,12 +46,12 @@ export class Characterizer {
                         if (hit) {
                             hits.push(hit);
                             let rec = new VerseCharacterization();
-                            rec.verse_id = verses[i].id;
-                            rec.characterization_id = typeId;
+                            rec.verseId = verses[i].id;
+                            rec.characterizationId = typeId;
                             rec.score = hit.score;
                             rec.percent = parseFloat((hit.score / hit.nWords * 100).toFixed(1));
-                            console.log(rec.verse_id + ' ' + rec.score + ' ' + rec.percent);
-                            rec.save().then();
+                            console.log(rec.verseId + ' ' + rec.score + ' ' + rec.percent);
+                            this.verseRepo.save(rec).then();
                         }
                     }
                 } catch (exception) {

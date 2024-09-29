@@ -2,7 +2,7 @@
 <?php
 $dumpBasePath = $argv[1];
 if (empty($dumpBasePath)) {
-    echo 'Usage: dumbdb.php <path>';
+    echo 'Usage: dumpdb.php <path>';
     exit;
 }
 $dTime = date('Y_m_d_h_i');

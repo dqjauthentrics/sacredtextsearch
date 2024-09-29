@@ -1,6 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.APP_STATUS_OKAY = 1;
-exports.APP_STATUS_ERROR = 0;
-
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9hcHAuY29uc3RhbnRzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQWEsUUFBQSxlQUFlLEdBQUcsQ0FBQyxDQUFDO0FBQ3BCLFFBQUEsZ0JBQWdCLEdBQUcsQ0FBQyxDQUFDIiwiZmlsZSI6ImFwcC5jb25zdGFudHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgQVBQX1NUQVRVU19PS0FZID0gMTtcbmV4cG9ydCBjb25zdCBBUFBfU1RBVFVTX0VSUk9SID0gMDtcbiJdfQ==
