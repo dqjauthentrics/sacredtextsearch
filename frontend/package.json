@@ -21,7 +21,6 @@
     "@ng-vibe/toastify": "^0.1.2",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
-    "@swimlane/ngx-datatable": "^20.1.0",
     "@types/d3": "^7.4.3",
     "@types/jquery": "^3.5.30",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
