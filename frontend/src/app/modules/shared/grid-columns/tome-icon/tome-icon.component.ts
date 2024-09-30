@@ -40,7 +40,7 @@ export class TomeIconComponent implements OnInit, OnChanges {
 	public sourceClick(event: MouseEvent | KeyboardEvent, action: string) {
 		event.stopImmediatePropagation();
 		if (this.verse) {
-			if (action !== 'source') {
+			if (action !== 'source') { // source is handled locally
 				this.searchService.sourceClick.next({verse: this.verse, action: action});
 			}
 		}

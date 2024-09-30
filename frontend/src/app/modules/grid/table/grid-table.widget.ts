@@ -161,7 +161,7 @@ export class GridTableWidget implements OnInit, AfterViewInit, OnDestroy {
                 if (q && q.length > 0) {
                     const marker = new Mark(document.querySelectorAll('.highlightable'));
                     marker.unmark();
-                    marker.mark(q, {});
+                    marker.mark(q, {separateWordSearch: true, accuracy: 'exactly'});
                     this.gridService.highlightIntervalCount++;
                     if (this.gridService.highlightIntervalCount > 5) {
                         this.gridService.highlightIntervalCount = 0;

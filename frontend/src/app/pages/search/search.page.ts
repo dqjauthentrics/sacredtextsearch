@@ -1,8 +1,6 @@
-import {Component, HostListener, OnDestroy, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {SearchService, SourceClick} from '@services/search.service';
 import {CollectionService} from '@services/collection.service';
-import {SysinfoService} from '@services/sysinfo.service';
-import {FilterSelectionService} from '@services/filter-selection.service';
 import {CollectionTreeService} from '@services/collection-tree.service';
 import {AdService} from '@services/ad.service';
 import {GRID_OPSPEC_SEARCH_INFO_TOP_PAGING_BOTTOM, GridConfig, GridItem, GridListEvent} from '@modules/grid/grid.interfaces';
@@ -20,6 +18,7 @@ import {TomeInterface} from '@backend/tome.interface';
 import {ChapterPanelComponent} from '@modules/shared/chapter-panel/chapter-panel.component';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {VerseTranslationsPanelComponent} from '@modules/shared/verse-translations-panel/verse-translations-panel.component';
+import {eng, removeStopwords} from 'stopword';
 
 export const SEARCH_LIST_ID = 'search-results-list';
 
@@ -94,13 +93,6 @@ export class SearchPage implements OnInit, OnDestroy {
 		},
 	];
 
-	public quickFilters = [
-		{name: 'Christianity', checked: true},
-		{name: 'Judaism', checked: true},
-		{name: 'Islam', checked: true},
-		{name: 'Other', checked: true},
-	];
-
 	private updateSubscription: Subscription | null = null;
 	private sourceClickSubscription: Subscription | null = null;
 	private collectionChangeSubscription: Subscription | null = null;
@@ -113,13 +105,6 @@ export class SearchPage implements OnInit, OnDestroy {
 		private collectionService: CollectionService,
 		public collectionTreeService: CollectionTreeService,
 		private adService: AdService) {
-	}
-
-	@HostListener('keyup.esc')
-	onKeyupEsc(): void {
-		if (this.modalService) {
-			this.modalService.hide();
-		}
 	}
 
 	ngOnInit(): void {
@@ -224,12 +209,22 @@ export class SearchPage implements OnInit, OnDestroy {
 			});
 	}
 
+	private verseToQuery(verse: VerseInterface) {
+		// Add our own stopwords.
+		const n = ['not', 'let', 'thee', 'thy', 'thou', 'so', 'ay'];
+		const stops = eng.concat(n);
+		let q = verse.body.replace(/[^a-zA-Z\s]/g, '').toLowerCase();
+		q = removeStopwords(q.split(' '), stops).join(' ');
+		return q;
+	}
+
 	private searchByVerse(verse: VerseInterface) {
 		this.showCollectionsFilter = false;
 		this.selectedVerse = verse;
-		this.query = this.searchService.namify(this.selectedVerse);
+		//this.query = this.searchService.namify(this.selectedVerse);
+		this.query = this.verseToQuery(verse);
 		if (this.gridConfig) {
-			this.gridConfig.query = this.query;
+			this.gridConfig.query = this.query || '';
 			this.gridService.refreshItems(SEARCH_LIST_ID, this.gridConfig);
 		}
 	}
