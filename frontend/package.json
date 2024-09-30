@@ -29,7 +29,6 @@
     "ag-grid-community": "^32.0.1",
     "angular-datatables": "^17.1.0",
     "animate.css": "^4.1.1",
-    "bootstrap": "^5.3.3",
     "cordova-plugin-dialogs": "2.0.2",
     "cordova-sqlite-storage": "6.1.0",
     "core-js": "^3.37.1",

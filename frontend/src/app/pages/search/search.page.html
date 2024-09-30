@@ -56,27 +56,12 @@
 		</div>
 	</div>
 </div>
-<div #sourcePop="bs-popover" [popover]="sourceTemplate"></div>
 <ng-template #contactTemplate>
 	<ng-container #contactContainer></ng-container>
-</ng-template>
-<ng-template #sourceTemplate>
-	<ng-container #sourceContainer></ng-container>
 </ng-template>
 <div id="filterCollection" *ngIf="showCollectionsFilter">
 	<filter-collection (hide)="showCollectionsFilter = false"></filter-collection>
 </div>
-<div id="verseTranslations" *ngIf="showVerseTranslations">
-	<verse-translations-panel
-			(hide)="showVerseTranslations = false"
-			[refresher]="verseRefresher">
-	</verse-translations-panel>
-</div>
-<div id="chapterPanel" *ngIf="showChapter">
-	<chapter-panel
-			[searchChapter]="chapterRefresher"
-			(hide)="showChapter = false"
-	></chapter-panel>
-</div>
+
 
 

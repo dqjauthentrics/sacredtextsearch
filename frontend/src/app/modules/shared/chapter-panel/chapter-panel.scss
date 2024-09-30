@@ -1,4 +1,6 @@
 .chapter {
+  padding: 1rem;
+
   .chapter-header {
     font-weight: bold;
   }
@@ -8,7 +10,8 @@
   }
 
   #chapterScroll {
+    border: 1px solid gray;
+    max-height: 60vh;
     overflow: auto;
-    border: 1px solid #EEE;
   }
 }

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {SearchService, SourceClick} from '@services/search.service';
 import {CollectionService} from '@services/collection.service';
 import {SysinfoService} from '@services/sysinfo.service';
@@ -17,6 +17,9 @@ import {ContactComponent} from '@modules/shared/contact/contact.component';
 import {VerseInterface} from '@backend/verse.interface';
 import {ChapterInterface} from '@backend/chapter.interface';
 import {TomeInterface} from '@backend/tome.interface';
+import {ChapterPanelComponent} from '@modules/shared/chapter-panel/chapter-panel.component';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {VerseTranslationsPanelComponent} from '@modules/shared/verse-translations-panel/verse-translations-panel.component';
 
 export const SEARCH_LIST_ID = 'search-results-list';
 
@@ -36,12 +39,10 @@ export interface TomeSelect {
 export class SearchPage implements OnInit, OnDestroy {
 	@ViewChild('contactContainer', {read: ViewContainerRef, static: true}) contactContainer!: ViewContainerRef;
 	@ViewChild('contactPop', {static: true}) contactPop!: PopoverDirective;
-	@ViewChild('sourceContainer', {read: ViewContainerRef, static: true}) sourceContainer!: ViewContainerRef;
+	@ViewChild('sourceTemplate', {read: ViewContainerRef, static: true}) sourceTemplate!: ViewContainerRef;
 	@ViewChild('sourcePop', {static: true}) sourcePop!: PopoverDirective;
 
 	public showCollectionsFilter = false;
-	public showVerseTranslations = false;
-	public showChapter = false;
 	public canShowAds = false;
 	public refreshAds = false;
 	public gridConfig?: GridConfig;
@@ -50,7 +51,10 @@ export class SearchPage implements OnInit, OnDestroy {
 	public query: string | null = null;
 	public nQueryHits = 0;
 	public verseRefresher = true;
-	public chapterRefresher?: any;
+	public chapModalRef?: BsModalRef;
+	public chapModalSub?: Subscription;
+	public transModalRef?: BsModalRef;
+	public transModalSub?: Subscription;
 
 	public tomeSelects: Array<TomeSelect> = [
 		{
@@ -103,13 +107,19 @@ export class SearchPage implements OnInit, OnDestroy {
 	private configChangeSubscription: Subscription | null = null;
 
 	constructor(
+		private modalService: BsModalService,
 		private gridService: GridService,
 		public searchService: SearchService,
 		private collectionService: CollectionService,
-		private sysinfoService: SysinfoService,
 		public collectionTreeService: CollectionTreeService,
-		private filterSelectionService: FilterSelectionService,
 		private adService: AdService) {
+	}
+
+	@HostListener('keyup.esc')
+	onKeyupEsc(): void {
+		if (this.modalService) {
+			this.modalService.hide();
+		}
 	}
 
 	ngOnInit(): void {
@@ -135,6 +145,14 @@ export class SearchPage implements OnInit, OnDestroy {
 			this.configChangeSubscription.unsubscribe();
 			this.configChangeSubscription = null;
 		}
+		if (this.chapModalSub) {
+			this.chapModalSub.unsubscribe();
+			this.chapModalSub = undefined;
+		}
+		if (this.transModalSub) {
+			this.transModalSub.unsubscribe();
+			this.transModalSub = undefined;
+		}
 	}
 
 	async popoverContact(popover: PopoverDirective) {
@@ -142,14 +160,6 @@ export class SearchPage implements OnInit, OnDestroy {
 			this.contactContainer.clear();
 			this.contactContainer.createComponent(ContactComponent);
 			popover.show();
-		}
-	}
-
-	async popoverSource() {
-		if (this.sourceContainer && this.sourcePop) {
-			this.sourceContainer.clear();
-			this.sourceContainer.createComponent(ContactComponent);
-			this.sourcePop.show();
 		}
 	}
 
@@ -184,9 +194,11 @@ export class SearchPage implements OnInit, OnDestroy {
 						title: chapter.title
 					};
 					this.showCollectionsFilter = false;
-					this.showVerseTranslations = false;
-					this.showChapter = true;
-					this.chapterRefresher = this.searchService.chapter;
+					this.chapModalRef = this.modalService.show(ChapterPanelComponent, {
+						initialState: {searchChapter: this.searchService.chapter},
+						class: 'modal-lg', // Optional: you can pass additional classes or configuration
+					});
+					this.chapModalSub = this.chapModalRef.content.closeRequest.subscribe(() => this.modalService.hide());
 				}
 			});
 	}
@@ -202,17 +214,18 @@ export class SearchPage implements OnInit, OnDestroy {
 			.then((result: SearchResultInterface[]) => {
 				this.searchService.chapter = null;
 				this.searchService.verseTranslations = result || [];
-				this.showVerseTranslations = true;
 				this.showCollectionsFilter = false;
-				this.showChapter = false;
 				this.verseRefresher = !this.verseRefresher;
+				this.transModalRef = this.modalService.show(VerseTranslationsPanelComponent, {
+					initialState: {verseTranslations: this.searchService.verseTranslations},
+					class: 'modal-lg', // Optional: you can pass additional classes or configuration
+				});
+				this.transModalSub = this.transModalRef.content.closeRequest.subscribe(() => this.modalService.hide());
 			});
 	}
 
 	private searchByVerse(verse: VerseInterface) {
-		this.showVerseTranslations = false;
 		this.showCollectionsFilter = false;
-		this.showChapter = false;
 		this.selectedVerse = verse;
 		this.query = this.searchService.namify(this.selectedVerse);
 		if (this.gridConfig) {
@@ -222,8 +235,6 @@ export class SearchPage implements OnInit, OnDestroy {
 	}
 
 	private setCollection(refresh: boolean) {
-		this.showVerseTranslations = false;
-		this.showChapter = false;
 		const translationIds = this.collectionTreeService.getSelectedTranslationIds();
 		if (this.gridConfig) {
 			this.gridConfig.hardConstraints = [
@@ -244,9 +255,6 @@ export class SearchPage implements OnInit, OnDestroy {
 		this.sourceClickSubscription = this.searchService.sourceClick.subscribe((sourceClick: SourceClick) => {
 			this.searchService.verse = sourceClick.verse;
 			switch (sourceClick.action) {
-				case 'source':
-					this.popoverSource().then();
-					break;
 				case 'search':
 					this.searchByVerse(sourceClick.verse);
 					break;
@@ -271,10 +279,6 @@ export class SearchPage implements OnInit, OnDestroy {
 
 		this.updateSubscription = this.gridService.listEvent.subscribe((listEvent: GridListEvent) => {
 			if (listEvent.listId === SEARCH_LIST_ID && listEvent.query !== this.query) {
-				// let cleanQuery: string | null = null;
-				// if (listEvent.retrievalResult && listEvent.retrievalResult.page) {
-				// 	cleanQuery = listEvent.retrievalResult.page.cleanQuery;
-				// }
 				if (this.query && this.query.length > 0) {
 					this.welcomeShown = true;
 				}
@@ -297,8 +301,6 @@ export class SearchPage implements OnInit, OnDestroy {
 				html: 'Advanced Filter >>',
 				onClick: (_items: Array<GridItem>) => {
 					this.showCollectionsFilter = !this.showCollectionsFilter;
-					this.showVerseTranslations = false;
-					this.showChapter = false;
 				}
 			}
 		});
@@ -326,10 +328,10 @@ export class SearchPage implements OnInit, OnDestroy {
 				}
 				return verses;
 			},
-			itemClick: (item: GridItem) => {
-				const verse: VerseInterface = item.record.verse;
-				this.viewChapter(verse);
-			},
+			// itemClick: (item: GridItem) => {
+			// 	const verse: VerseInterface = item.record.verse;
+			// 	this.viewChapter(verse);
+			// },
 			colSpecs: [
 				{
 					name: 'verse.body', heading: 'Book', bodyCellClasses: 'tome-cell', type: 'custom',

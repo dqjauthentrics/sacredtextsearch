@@ -37,10 +37,7 @@
 							"src/app/theme/variables.scss",
 							"src/global.scss",
 							"src/app/app.scss",
-							"node_modules/animate.css/animate.min.css",
-							"node_modules/@swimlane/ngx-datatable/index.css",
-							"node_modules/@swimlane/ngx-datatable/themes/bootstrap.css",
-							"node_modules/@swimlane/ngx-datatable/assets/icons.css"
+							"node_modules/animate.css/animate.min.css"
 						],
 						"scripts": [
 							"node_modules/jquery/dist/jquery.js"

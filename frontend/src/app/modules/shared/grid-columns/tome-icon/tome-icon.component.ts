@@ -19,7 +19,10 @@ export class TomeIconComponent implements OnInit, OnChanges {
 	public iconOnly = false;
 	public translation = '';
 
-	constructor(private collectionService: CollectionService, public searchService: SearchService) {
+	constructor(
+		private collectionService: CollectionService,
+		public searchService: SearchService
+	) {
 	}
 
 	ngOnChanges(_changes: SimpleChanges) {
@@ -28,6 +31,19 @@ export class TomeIconComponent implements OnInit, OnChanges {
 
 	ngOnInit(): void {
 		this.update();
+	}
+
+	public refresh(_params: any): boolean {
+		return true;
+	}
+
+	public sourceClick(event: MouseEvent | KeyboardEvent, action: string) {
+		event.stopImmediatePropagation();
+		if (this.verse) {
+			if (action !== 'source') {
+				this.searchService.sourceClick.next({verse: this.verse, action: action});
+			}
+		}
 	}
 
 	private update() {
@@ -46,17 +62,6 @@ export class TomeIconComponent implements OnInit, OnChanges {
 			if (this.tome) {
 				this.icon = ['fas', this.tome.icon];
 			}
-		}
-	}
-
-	public refresh(_params: any): boolean {
-		return true;
-	}
-
-	public sourceClick(event: MouseEvent | KeyboardEvent, action: string) {
-		event.stopImmediatePropagation();
-		if (this.verse) {
-			this.searchService.sourceClick.next({verse: this.verse, action: action});
 		}
 	}
 }

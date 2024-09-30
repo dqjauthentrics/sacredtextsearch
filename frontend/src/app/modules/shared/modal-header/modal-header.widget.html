@@ -1,0 +1,15 @@
+<div class="mheader">
+	<div class="row">
+		<div class="col-auto" *ngIf="tomeData">
+			<tome-icon [data]="tomeData"></tome-icon>
+		</div>
+		<div class="col">
+			<h1 [innerHTML]="title"></h1>
+			<h2 *ngIf="subTitle" [innerHTML]="subTitle"></h2>
+			<h3 *ngIf="subSubTitle" [innerHTML]="subSubTitle"></h3>
+		</div>
+		<div class="col-auto">
+			<closer (closeRequest)="hideDialog()"></closer>
+		</div>
+	</div>
+</div>

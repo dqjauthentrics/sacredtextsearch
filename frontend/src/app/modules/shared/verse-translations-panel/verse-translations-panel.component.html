@@ -1,18 +1,12 @@
-<div *ngIf="firstVerse" class="verse-translations">
-	<div class="row">
-		<div class="col-auto">
-			<tome-icon [data]="tomeData"></tome-icon>
-		</div>
-		<div class="col">
-			<h4>{{ title }}, Verse {{ firstVerse.verseNumber }}</h4>
-		</div>
-		<div class="col-auto">
-			<i tabindex="0" class="clickable float-right fas fa-times" (keyup)="hideMe()" (click)="hideMe()"></i>
-		</div>
-	</div>
+<div *ngIf="firstVerse && verseTranslations" class="verse-translations">
+	<modal-header
+			[tomeData]="tomeData"
+			[title]="title + ', ' + firstVerse.verseNumber"
+			(closeRequest)="hideMe()"
+	></modal-header>
 	<h5>{{ subTitle }}</h5>
-	<div class="verses-wrap" [style.height]="parentHeight()">
-		<div class="verse" *ngFor="let result of SVC.verseTranslations">
+	<div class="verses-wrap">
+		<div class="verse" *ngFor="let result of verseTranslations">
 			<div class="translation">
 				{{ result.verse.translation.name }}
 			</div>

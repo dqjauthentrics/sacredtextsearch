@@ -96,6 +96,9 @@ export class AppMissingTranslationHandler implements MissingTranslationHandler {
 		SearchService,
 		provideNgVibeToastify()
 	],
+	exports: [
+		ChapterPanelComponent
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

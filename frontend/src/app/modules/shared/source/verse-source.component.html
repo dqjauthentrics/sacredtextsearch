@@ -1,0 +1,24 @@
+<div class="verse-source" *ngIf="verse">
+	<div class="row">
+		<div class="col">
+			<h4>
+				{{ verse.book.tome.name }}
+				{{ verse.book.name }}
+				{{ verse.chapterNumber }}:{{ verse.verseNumber }}
+			</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<a target="_blank" [href]="verse.translation.infoUrl"
+			>{{ verse.translation.publisher }}</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<a target="_blank" [href]="verse.translation.infoUrl"
+			><img [src]="'/assets/sources/' + verse.translation.screenshotUrl"
+				  alt="site screenshot"/></a>
+		</div>
+	</div>
+</div>

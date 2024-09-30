@@ -1,17 +1,12 @@
 <div *ngIf="searchChapter?.tome && searchChapter?.selectedVerse" class="chapter">
-	<div class="text-right">
-		<i tabindex="0" class="clickable float-right fas fa-times" (keyup)="hideMe()" (click)="hideMe()"></i>
-	</div>
-	<div *ngIf="chapterHeader" class="chapter-header">
-		<div>{{ chapterHeader.tomeBook }}</div>
-		<div *ngIf="chapterHeader.chapterName" class="chapter-name">
-			{{ chapterHeader.chapterName }}
-		</div>
-		<div *ngIf="chapterHeader.translationText" class="translation-text">
-			Translation: {{ chapterHeader.translationText }}
-		</div>
-	</div>
-
+	<modal-header
+			*ngIf="chapterHeader"
+			[tomeData]="tomeData"
+			[title]="chapterHeader.tomeBook"
+			[subTitle]="chapterHeader?.chapterName"
+			[subSubTitle]="chapterHeader.translationText? 'Translation: ' + chapterHeader.translationText : undefined"
+			(closeRequest)="hideMe()"
+	></modal-header>
 	<div id="chapterScroll">
 		<div class="grid" *ngIf="searchChapter && searchChapter.verses">
 			<ng-container *ngFor="let verse of searchChapter.verses">

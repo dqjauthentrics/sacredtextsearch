@@ -1,4 +1,6 @@
 .verse-translations {
+  padding: 2rem;
+
   .header {
     font-size: 1.4rem;
     line-height: 1.5rem;
@@ -25,6 +27,7 @@
   }
 
   .verses-wrap {
-    //overflow: auto;
+    overflow: auto;
+    max-height: 50vh;
   }
 }

@@ -12,7 +12,11 @@
 				{{ searchService.namify(verse, '%t %b %c:%v') }}
 			</div>
 			<div *ngIf="translation.length > 0" class="source">
-				<a tabindex="0" (click)="sourceClick($event, 'source')">{{ translation }}</a>
+				<a tabindex="0"
+				   #sourcePop="bs-popover"
+				   [popover]="sourceTemplate"
+				   [outsideClick]="true"
+				>{{ translation }}</a>
 			</div>
 			<div>
             <span [tooltip]="'View verse in context.'">
@@ -36,4 +40,7 @@
 			</div>
 		</ng-container>
 	</div>
+	<ng-template #sourceTemplate>
+		<verse-source [verse]="verse"></verse-source>
+	</ng-template>
 </ng-container>

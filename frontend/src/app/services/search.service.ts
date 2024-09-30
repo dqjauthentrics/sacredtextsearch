@@ -37,7 +37,7 @@ export interface ChapterHeader {
 @Injectable()
 export class SearchService extends AppDataService<any> {
 	public chapter: SearchChapter | null = null; // for page slide-out
-	public verseTranslations: Array<SearchResultInterface> | null = null; // for page slide-out
+	public verseTranslations: SearchResultInterface[] | null = null; // for page slide-out
 	public verse: VerseInterface | null = null;           // for popovers
 	public sidePanelIsOpen = false;
 	public sourceClick: Subject<SourceClick> = new Subject<SourceClick>();
