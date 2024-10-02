@@ -1,4 +1,4 @@
-import { SearchResultInterface } from '../interfaces/search-result.interface';
+import { SearchResultInterface } from '../shared/interfaces/search-result.interface';
 export interface TextAnalysisFrequencies {
     size: number;
     text: string;

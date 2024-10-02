@@ -1,7 +1,7 @@
+<grid-loading-bar [loading]="config?.__loading"></grid-loading-bar>
 <div *ngIf="config" #gridContainer
      [class]="config.uniqueId + (config.classes ? ' ' + config.classes : '')"
      (window:resize)="setContainerWidth()">
-    <grid-loading-bar [loading]="config.__loading"></grid-loading-bar>
     <grid-debug *ngIf="config.__debug && config.__debug >= 2" [config]="config"></grid-debug>
     <div *ngIf="config.__initialized" class="grid">
         <!-- Top ops. -->

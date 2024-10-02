@@ -5,7 +5,6 @@ import { Translation } from '../entities/translation';
 import { Book } from '../entities/book';
 import { Tome } from '../entities/tome';
 import { QueryInterface } from '../interfaces/query.interface';
-import { SearchResultInterface } from '../interfaces/search-result.interface';
 import { UserQuery } from '../entities/user-query';
 import {
   BookChapterVerse,
@@ -22,6 +21,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { DataResult } from '../shared/interfaces/data-result';
+import {SearchResultInterface} from '../shared/interfaces/search-result.interface';
 
 const HttpStatus = require('http-status-codes');
 const natural = require('natural');
@@ -128,12 +128,11 @@ export class SearchController {
       const query = await this.clean(post.query);
       const isSpecific = query && (query.match(/:/g) || []).length === 2;
       const verse: Verse | undefined = undefined;
-      const order: string = post.sort || 'zrank DESC';
+      const order: string = post.sort || 'zrankNormalized DESC';
       const translationIdStr =
         post.hardConstraints && post.hardConstraints.length > 0
           ? post.hardConstraints[0].value.join(',')
           : '';
-
       let bookName = '';
       let chNum = 0;
       let vsNum = 0;
@@ -318,7 +317,7 @@ export class SearchController {
         }
       }
     }
-    return ordering.length > 0 ? ordering : 'zrank DESC';
+    return ordering.length > 0 ? ordering : 'zrankNormalized DESC';
   }
 
   private storeQuery(searchQuery: string, n_hits: number) {
@@ -383,7 +382,9 @@ export class SearchController {
         hits.push({
           verse: verse,
           score: row.score,
-          rank: Math.round(row.zrank),
+          zrank: row.zrank,
+          zrankNormalized: row.zrankNormalized,
+          combinedRank: row.combinedRank,
           violence: Math.round(row.violence),
           myth: Math.round(row.myth),
           submission: Math.round(row.submission),

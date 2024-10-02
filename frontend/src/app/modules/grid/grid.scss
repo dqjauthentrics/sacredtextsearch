@@ -149,6 +149,7 @@ grid-button button.no-border {
     line-height: 40px;
     vertical-align: middle;
     color: $brand-primary-dark;
+    background: transparent !important;
     text-decoration: underline;
   }
 }
@@ -421,5 +422,15 @@ table.grid-table.list {
       -o-object-fit: cover;
       object-fit: cover;
     }
+  }
+}
+
+::ng-deep {
+  .fg-primary, .fg-primary:after, .fg-primary:before {
+    color: $brand-primary !important;
+  }
+
+  .fg-secondary, .fg-secondary:after, .fg-secondary:before {
+    color: $brand-secondary-lighter !important;
   }
 }

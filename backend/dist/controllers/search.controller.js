@@ -101,7 +101,7 @@ let SearchController = class SearchController {
             const query = await this.clean(post.query);
             const isSpecific = query && (query.match(/:/g) || []).length === 2;
             const verse = undefined;
-            const order = post.sort || 'zrank DESC';
+            const order = post.sort || 'zrankNormalized DESC';
             const translationIdStr = post.hardConstraints && post.hardConstraints.length > 0
                 ? post.hardConstraints[0].value.join(',')
                 : '';
@@ -256,7 +256,7 @@ let SearchController = class SearchController {
                 }
             }
         }
-        return ordering.length > 0 ? ordering : 'zrank DESC';
+        return ordering.length > 0 ? ordering : 'zrankNormalized DESC';
     }
     storeQuery(searchQuery, n_hits) {
         try {
@@ -315,7 +315,9 @@ let SearchController = class SearchController {
                 hits.push({
                     verse: verse,
                     score: row.score,
-                    rank: Math.round(row.zrank),
+                    zrank: row.zrank,
+                    zrankNormalized: row.zrankNormalized,
+                    combinedRank: row.combinedRank,
                     violence: Math.round(row.violence),
                     myth: Math.round(row.myth),
                     submission: Math.round(row.submission),

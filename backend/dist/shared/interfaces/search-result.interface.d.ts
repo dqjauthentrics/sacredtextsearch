@@ -1,7 +1,9 @@
 import { VerseInterface } from '../entity-interfaces/verse.interface';
 export interface SearchResultInterface {
     verse: VerseInterface;
-    rank: number;
+    zrank: number;
+    zrankNormalized: number;
+    combinedRank: number;
     score: number;
     violence: number;
     myth: number;

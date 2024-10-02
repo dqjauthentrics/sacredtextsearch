@@ -339,16 +339,22 @@ export class SearchPage implements OnInit, OnDestroy {
 					name: 'verse', heading: 'Verse', type: 'custom',
 					typeSpec: {highlight: true, componentName: 'VerseBodyCellComponent'}
 				},
+				// {
+				// 	name: 'score', heading: 'raw'
+				// },
+				// {
+				// 	name: 'combinedRank', heading: 'combo'
+				// },
+				// {
+				// 	name: 'zrankNormalized', heading: 'norm'
+				// },
 				{
-					name: 'rank', heading: 'Relevance', type: 'text', headerCellClasses: 'centered', bodyCellClasses: 'middle',
-					showMinWidth: 1000,
+					name: 'zrankNormalized', heading: 'Relevance', type: 'text', headerCellClasses: 'centered',
+					bodyCellClasses: 'top text-center',
+					showMinWidth: 100,
 					render: (item: GridItem) => {
 						const hit: SearchResultInterface = item.record;
-						if (hit.rank > 0) {
-							const bars = hit.rank >= 5 ? '' : '-' + hit.rank.toString();
-							return '<i class="rank gray fad fa-2x fa-signal' + bars + '"></i>';
-						}
-						return '';
+						return this.mapSignal(hit.zrankNormalized);
 					}
 				},
 				{
@@ -365,5 +371,20 @@ export class SearchPage implements OnInit, OnDestroy {
 				}
 			]
 		};
+	}
+
+	private mapSignal(rank: number) {
+		const r = Math.round(rank);
+		if (r >= 0 && r <= 5) {
+			let signal = '';
+			for (let i = 0; i < r; i++) {
+				signal += '<i class="green fas fa-star"></i>';
+			}
+			for (let i = r; i < 5; i++) {
+				signal += '<i class="gray far fa-star"></i>';
+			}
+			return signal;
+		}
+		return rank.toString();
 	}
 }

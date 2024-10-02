@@ -7,6 +7,7 @@ import {SearchService} from '@services/search.service';
 import {ReligionInterface} from '@backend/religion.interface';
 import {TreeviewItem} from '@modules/treeview/models/treeview-item';
 import {FilterSelectionInterface} from '@shared/interfaces/filter-selection.interface';
+import {TreeviewConfig} from '@modules/treeview/models/treeview-config';
 
 @Component({
 	selector: 'filter-collection',
@@ -18,7 +19,7 @@ export class FilterCollectionComponent implements OnInit {
 	public loading = true;
 	public SVC: CollectionTreeService;
 
-	public config: any = { //TreeviewConfig = {
+	public config: TreeviewConfig = {
 		hasAllCheckBox: true,
 		hasFilter: false,
 		hasCollapseExpand: true,

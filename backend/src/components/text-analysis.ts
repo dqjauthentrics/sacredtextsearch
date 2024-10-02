@@ -1,5 +1,5 @@
 import { stopWordList } from './_stop-words';
-import { SearchResultInterface } from '../interfaces/search-result.interface';
+import {SearchResultInterface} from '../shared/interfaces/search-result.interface';
 
 /**
  * Provides text analysis support for searches.

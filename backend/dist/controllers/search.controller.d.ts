@@ -1,8 +1,8 @@
 import { Verse } from '../entities/verse';
-import { SearchResultInterface } from '../interfaces/search-result.interface';
 import { GridPostInterface } from '../interfaces/grid-post.interface';
 import { Chapter } from '../entities/chapter';
 import { DataResult } from '../shared/interfaces/data-result';
+import { SearchResultInterface } from '../shared/interfaces/search-result.interface';
 export declare class SearchController {
     private debug;
     private bookRepo;

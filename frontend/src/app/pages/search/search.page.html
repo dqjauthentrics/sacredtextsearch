@@ -18,15 +18,15 @@
 		<div class="row py-4">
 			<div class="col-auto search-left-col col-xs-12 col-sm-12 col-md-8 col-lg-9 col-lg-9"
 				 [class]="'ion-padding ion-align-self-stretch'">
-				<div class="row">
+				<div class="row checks-row mx-4">
 					<div role="button" tabindex="0"
 						 [class]="'col filter-icon ' + (tomeSelect.selected? '':'unselected')"
 						 *ngFor="let tomeSelect of tomeSelects"
 						 (keyup)="tomeToggle(tomeSelect)"
 						 (click)="tomeToggle(tomeSelect)">
 						<div [innerHTML]="tomeSelect.icon"></div>
-						<div>{{ tomeSelect.name }}</div>
-						<div class="check"><i [class]="'check fal ' + (tomeSelect.selected? 'fa-check-square' : 'fa-square')"></i></div>
+						<div class="label"><span class="check"><i [class]="'check fal ' + (tomeSelect.selected? 'fa-check-square' : 'fa-square')"></i></span> {{ tomeSelect.name }}
+						</div>
 					</div>
 				</div>
 				<grid *ngIf="gridConfig" [config]="gridConfig"></grid>

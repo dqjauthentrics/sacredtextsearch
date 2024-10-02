@@ -55,6 +55,13 @@
   overflow: auto;
 }
 
+.checks-row {
+  border-top: 1px solid $brand-secondary;
+  border-bottom: 1px solid $brand-secondary;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
 @media (max-width: 800px) {
   .search-left-col {
     margin-top: -40px;
@@ -84,20 +91,32 @@
   opacity: 0.5;
 }
 
+h2 {
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+
+.label {
+  font-size: 14px;
+  line-height: 32px;
+  vertical-align: middle;
+}
+
 .filter-icon {
   text-align: center;
 
   .check {
-    font-size: 1.4rem;
+    font-size: 18px;
+    vertical-align: middle;
   }
 
   i.icon {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   img.icon {
-    height: 40px;
-    width: 40px;
+    height: 32px;
+    width: 32px;
   }
 
   .bible {

@@ -12,13 +12,14 @@
 				   [class]="'fa-lg fas fa-' + (item.collapsed? 'caret-right' : 'caret-down')">
 				</i>
 			</button>
-			<label for="val" class="form-check-label"
-				   (click)="item.checked = !item.checked; onCheckedChange()">
-			</label>
-			<input id="val" *ngIf="item.value.id > 0"
+			<a tabindex="0" class="form-check-label"
+			   (click)="item.checked = !item.checked; onCheckedChange()"
+			   (keyup)="item.checked = !item.checked; onCheckedChange()"
+			>
+			</a>
+			<input *ngIf="item.value.id > 0"
 				   type="checkbox"
 				   class="form-check-input"
-				   name="dummyName" id="dummyId"
 				   [(ngModel)]="item.checked"
 				   (ngModelChange)="onCheckedChange()"
 				   (change)="changeNotify()"

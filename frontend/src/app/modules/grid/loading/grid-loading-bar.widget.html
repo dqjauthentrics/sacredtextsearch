@@ -1,1 +1,4 @@
-<div [class]="'grid-loading-bar' + (loading? ' loading': '')" role="progressbar"></div>
+<!--<div [class]="'grid-loading-bar' + (loading? ' loading': '')" role="progressbar"></div>-->
+<div class="spin-wrap" *ngIf="loading">
+	<i class="fg-primary fas fa-spinner fa-spin fa-2x"></i>
+</div>
